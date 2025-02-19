@@ -113,7 +113,7 @@ so first thing you're gonna want to do is add the DCS.exe as a steam game
 
 ![Porting to Steam](images/DCStoSteam.png)
 
-then add these launch options(some debug info and the .dll overrides from earlier)
+then add these launch options(some debug info and the .dll override from earlier)
 ```WINEDLLOVERRIDES="wbemprox=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
 
 also I found the most sucess with proton experimental but try different ones out see what works
@@ -130,7 +130,8 @@ new DCS prefix, it's probably going to be one of the longer ones mine is
 
 now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder
 ```/pfx/drive_c/users/steamuser/Saved Games/``` 
-to the one in your lutris install
+to the one in your lutris install for instance the command I used in arch was:
+```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```
 (honesly linking everything from the wine prefix would probably be a good idea but im just lazy)
 
 ## Known issues and fixes
