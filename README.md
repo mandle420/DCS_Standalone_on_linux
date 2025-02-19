@@ -1,7 +1,8 @@
 # DCS Standalone on Linux Via Wine/Proton
 
 DCS World can run on linux through Wine and Proton, though it does take some
-work to get running.
+work to get running, if anything dosen't work, make sure, I cannot stress this enough
+CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
 in the [proton issue
@@ -21,7 +22,7 @@ To chat about DCS World on Linux there is a Matrix chat available:
 ## Contents
 
    * [Installation](#installation)
-      * [Lutris](#getting-it-working-through-lutris)
+      * [Lutris](#getting-it-working)
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [Smoke](#white-smoke-and-some-other-particles-renders-weirdly)
       * [F16 RWR](#f16-rwr-shows-a-opaque-square-on-the-rwr-over-the-priority-contact)
@@ -32,31 +33,25 @@ To chat about DCS World on Linux there is a Matrix chat available:
 
 ## Installation
 
-### Getting it working through Lutris
+### Getting it installed via Lutris
 
 An easy way to get started is to use Lutris. There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
+I used the latter labeled Standalone Open Beta version, but they both should work
+as DCS no longer has an "OpenBeta" and i believe that the install scripts are borked.
 
-### Getting it working manually
+### Getting it working
 
-Both versions need some winetricks applied. For standalone, use `winetricks`,
-for proton use `protontricks 223750`.
+Both versions need some winetricks applied.
 
-Start the game once first to create the prefix, then run
+Start the game once first to create the prefix, then use lutris's winetricks
+to add these .dll and font.
 ```
 <tricks command> vcrun2019 corefonts xact d3dcompiler_43
 ```
 
-This should be all it takes to get standalone working.
-
-#### Fixing Steam version permanent crashing
-
-If your game crashes in the Steam version, it will permanently fail to start
-after that. To fix that: remove `drive_c/windows/system32/lsteamclient.dll`
-which was created in the crash, and the game should start back up fine.
-
-#### Open Beta (updated for 2.5.6.59398)
+#### Open Beta (updated for 2.9.12.5336)
 
 For now, this guide assumes you use the standalone version. The steam version
 may also work, but I have not tested it in a while. Currently, Wine 6.0 rc1 or
