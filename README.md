@@ -62,14 +62,14 @@ First, some variables to avoid repetition:
 - `$LOG`: the game log file `$CONFIG_DIR/Logs/dcs.log`.
 
 You need
-to add a few "dll overrides" for the game to work. As of 2.9.12, both `wbemprox` and `msdmo` need to be overridden.
+to add a few "dll overrides" for the game to work. As of 2.9.12, `wbemprox` needs to be overridden.
 In lutris, you can do so under "runner options".
 
 For wine and steam proton, you can do so using the `WINEDLLOVERRIDES`
 flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides
 
 ```
-WINEDLLOVERRIDES='wbemprox=n;msdmo=n'
+WINEDLLOVERRIDES='wbemprox=n'
 ```
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to intall the game files at this point and to duplicate the confg
@@ -114,7 +114,7 @@ so first thing you're gonna want to do is add the DCS.exe as a steam game
 ![Porting to Steam](images/DCStoSteam.png)
 
 then add these launch options(some debug info and the .dll overrides from earlier)
-```WINEDLLOVERRIDES="wbemprox=n,msdmo=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
+```WINEDLLOVERRIDES="wbemprox=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
 
 also I found the most sucess with proton experimental but try different ones out see what works
 
