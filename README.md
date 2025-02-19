@@ -5,19 +5,12 @@ work to get running, if anything dosen't work, make sure, I cannot stress this e
 CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
-in the [proton issue
-tracker](https://github.com/ValveSoftware/Proton/issues/1722) and in the 
-Matrix chat: https://matrix.to/#/#dcs-on-linux:matrix.org. Unfortunately,
+in the [proton issuetracker](https://github.com/ValveSoftware/Proton/issues/1722)
+and in the Matrix chat: https://matrix.to/#/#dcs-on-linux:matrix.org. Unfortunately,
 workarounds easily get buried there and the OG of this Doc is outdated
 (I will try to keep this one up to date but I make no promises),
 so I decided to edit with known, up-to-date methods for getting things to work.
 note: This doc will only cover getting the game running via the process I used
-
-Outside the proton thread, additional credit goes to @akp for the initial revision
-of the Opentrack instructions, and @bradley-r for the Linuxtrack, Scratchpad and V4L2 info.
-
-To chat about DCS World on Linux there is a Matrix chat available:
-* https://matrix.to/#/#dcs-on-linux:matrix.org
 
 ## Contents
 
@@ -54,10 +47,10 @@ to add these .dll and font.
 
 #### Open Beta (updated for 2.9.12.5336)
 
-For now, this guide assumes you use the standalone version. The steam version
-may also work, but I have not tested it in a while. Currently, Wine 6.0 rc1 or
-the Lutris version of that release are what work best but other wine versions
-may also work.
+For now, this guide assumes you use the standalone version, if you plan on using
+DCS with a VR headset, you'll need to use proton and the easiest way i've found
+to get it working is through Steam(not the steam version of the game but adding
+the game to Steam)
 
 First, some variables to avoid repetition:
 
@@ -71,7 +64,7 @@ First, some variables to avoid repetition:
 - `$LOG`: the game log file `$CONFIG_DIR/Logs/dcs.log`.
 
 You need
-to add a few "dll overrides" for the game to work. As of 2.7.9, both `wbemprox` and `msdmo` need to be overridden.
+to add a few "dll overrides" for the game to work. As of 2.9.12, both `wbemprox` and `msdmo` need to be overridden.
 In lutris, you can do so under "runner options".
 
 For wine and steam proton, you can do so using the `WINEDLLOVERRIDES`
@@ -81,9 +74,13 @@ flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides
 WINEDLLOVERRIDES='wbemprox=n;msdmo=n'
 ```
 
+So at this point you should get a black screen a little bit smaller than your display, that'll be the launcher
+you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
+options.lua in ``` /drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
+
 With that change, you should be able to log in but once the game starts you
-will see a black screen. To fix this, create a symlink from
-`$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.
+will see a black screen. To fix this, ~create a symlink from
+`$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~
 good job whoever wrote this cause it makes no sense, where is $INSTALL_dir, hmmmm?
 anyway if any of you figure it out feel free to let me know, but I have a different
 workaround for this problem however it removes the in game voice chat functionality
@@ -95,7 +92,8 @@ witch I find to be a downside however $INSTALL_dir isn't defined anywhere soooo
 The game should now start.
 
 You may also see a crash when loading a mission. This might be caused by a
-Arial missing font which can not be distributed with Wine.
+Arial missing font which can not be distributed with Wine, if you can 
+just 
 
 ## SteamVR
 
