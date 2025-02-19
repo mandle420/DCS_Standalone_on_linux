@@ -32,12 +32,11 @@ An easy way to get started is to use Lutris. There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
 I used the latter labeled Standalone Open Beta version, but they both should work
-as DCS no longer has an "OpenBeta" and i believe that the install scripts are borked.
+as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked.
 
 ### Getting it working
 
-Both versions need some winetricks applied.
-
+Both versions need some winetricks applied.    
 Start the game once first to create the prefix, then use lutris's winetricks
 to add these .dll and font.
 ```
@@ -47,7 +46,7 @@ to add these .dll and font.
 #### (updated for 2.9.12.5336)
 
 For now, this guide assumes you use the standalone version, if you plan on using
-DCS with a VR headset, you'll need to use proton and the easiest way i've found
+DCS with a VR headset, you'll want to use proton and the easiest way i've found
 to get it working is through Steam(not the steam version of the game but adding
 the game to Steam)
 
@@ -83,8 +82,9 @@ options.lua(included on this page at the top) in
 ### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)
 see [Porting to Steam](#Porting-to-Steam) for using proton(Via Steam), just skip this step
 
+
 With that change, you should be able to log in but once the game starts you
-will see a black screen. To fix this, ~create a symlink from
+will see a black screen. To fix this, ~create a symlink from   
 `$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~
 
 $INSTALL_dir isn't defined anywhere soooo....
