@@ -90,7 +90,8 @@ witch I find to be a downside however $INSTALL_dir isn't defined anywhere soooo
 ```
 ¯\_(ツ)_/¯
 ```
-you'll need to modify the optionsDB.lua located at ``/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua``
+you'll need to modify the optionsDB.lua located at 
+```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```
 and remove the calls to voicechat on lines ******,
 
 The game should now start.
@@ -108,7 +109,7 @@ the easiest way ive found to do so is to port your wine prefix to steam
 
 so first thing you're gonna want to do is add the DCS.exe as a steam game
 
-******image here* *****
+![Porting to Steam](images/DCS_to_Steam.png)
 
 then add these launch arguments(some debug info and the .dll overrides from earlier)
 ```WINEDLLOVERRIDES="wbemprox=n,msdmo=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
@@ -125,9 +126,9 @@ now once you're there, youll see alot of numbered folders, one of those is the
 new DCS prefix, it's probably going to be one of the longer ones mine is 
 /compatdata/2946498850/pfx
 
-now that you've found the Stean proton prefix, you need to link(I used a symlink)
-the ```/pfx/drive_c/users/steamuser/Saved Games/DCS<.openbeta?>/``` to the one in
-your lutris install
+now that you've found the Steam proton prefix, you need to link(I used a symlink) the
+```/pfx/drive_c/users/steamuser/Saved Games/DCS<.openbeta?>/``` 
+to the one in your lutris install
 
 ## Known issues and fixes
 
