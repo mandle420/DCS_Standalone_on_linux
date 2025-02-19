@@ -129,9 +129,13 @@ new DCS prefix, it's probably going to be one of the longer ones mine is
 /compatdata/2946498850/pfx
 
 now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder
+
 ```/pfx/drive_c/users/steamuser/Saved Games/``` 
+
 to the one in your lutris install for instance the command I used in arch was:
+
 ```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```
+
 (honesly linking everything from the wine prefix would probably be a good idea but im just lazy)
 
 ## Known issues and fixes
