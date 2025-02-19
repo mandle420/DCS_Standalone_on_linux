@@ -14,7 +14,7 @@ note: This doc will only cover getting the game running via the process I used
 
 ## Contents
 
-   * [Installation](#installation)
+   * [Installation](#Getting-it-installed-via-Lutris)
       * [Lutris](#getting-it-working)
       * [Porting to Steam](#Porting-to-Steam)
    * [Bugs and Fixes](#known-issues-and-fixes)
@@ -26,9 +26,7 @@ note: This doc will only cover getting the game running via the process I used
       * [Controls](#control-issues)
    * [Vr References](#Vr-References)
 
-## Installation
-
-### Getting it installed via Lutris
+## Getting it installed via Lutris
 
 An easy way to get started is to use Lutris. There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
@@ -46,7 +44,7 @@ to add these .dll and font.
 <tricks command> vcrun2019 corefonts xact d3dcompiler_43
 ```
 
-#### Open Beta (updated for 2.9.12.5336)
+#### (updated for 2.9.12.5336)
 
 For now, this guide assumes you use the standalone version, if you plan on using
 DCS with a VR headset, you'll need to use proton and the easiest way i've found
@@ -73,6 +71,9 @@ flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides
 ```
 WINEDLLOVERRIDES='wbemprox=n;msdmo=n'
 ```
+before you move on, you should have an install via lutris that opens the DCS_Updater.exe
+make sure you have used it to intall the game files at this point and to duplicate the confg
+in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not dosent matter
 
 So at this point you should get a black screen a little bit smaller than your display, that'll be the launcher
 you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
@@ -99,6 +100,34 @@ Arial missing font which can not be distributed with Wine, if you can
 just grab a copy from a windows install
 
 ### Porting-to-Steam
+
+So now you have a working install via lutris but it dosent detect your VR heaset 
+well let's fix that,
+
+the easiest way ive found to do so is to port your wine prefix to steam
+
+so first thing you're gonna want to do is add the DCS.exe as a steam game
+
+******image here* *****
+
+then add these launch arguments(some debug info and the .dll overrides from earlier)
+```WINEDLLOVERRIDES="wbemprox=n,msdmo=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
+
+also I found the most sucess with proton experimental but try different ones out see what works
+
+now that that's done, launch it to create the prefix in steam
+you'll notice that it still has the launcher issue, thats because you need
+to add the userdata from the wine prefix to the steam prefix
+
+steam proton prefixes are stored in the compatdata folder usually around here
+```/home/<USRNAME>/.local/share/Steam/steamapps/compatdata/```
+now once you're there, youll see alot of numbered folders, one of those is the
+new DCS prefix, it's probably going to be one of the longer ones mine is 
+/compatdata/2946498850/pfx
+
+now that you've found the Stean proton prefix, you need to link(I used a symlink)
+the ```/pfx/drive_c/users/steamuser/Saved Games/DCS<.openbeta?>/``` to the one in
+your lutris install
 
 ## Known issues and fixes
 
