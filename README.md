@@ -109,7 +109,7 @@ the easiest way ive found to do so is to port your wine prefix to steam
 
 so first thing you're gonna want to do is add the DCS.exe as a steam game
 
-![Porting to Steam](images/DCS_to_Steam.png)
+![Porting to Steam](images/DCStoSteam.png)
 
 then add these launch arguments(some debug info and the .dll overrides from earlier)
 ```WINEDLLOVERRIDES="wbemprox=n,msdmo=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
