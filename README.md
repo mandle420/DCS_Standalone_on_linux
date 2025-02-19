@@ -2,7 +2,7 @@
 
 
 DCS World can run on linux through Wine and Proton, though it does take some
-work to get running, if anything dosen't work, make sure, I cannot stress this enough
+work to get running and if you want to use VR I highly recommend using proton(steam) as opposed to wine, if anything dosen't work, make sure I cannot stress this enough
 CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
@@ -46,7 +46,7 @@ to add these .dll and font.
 
 #### (updated for 2.9.12.5336)
 
-For now, this guide assumes you use the standalone version, if you plan on using
+This guide only pertains to the standalone version, if you plan on using
 DCS with a VR headset, you'll want to use proton and the easiest way i've found
 to get it working is through Steam(not the steam version of the game but adding
 the game to Steam)
@@ -62,17 +62,15 @@ First, some variables to avoid repetition:
 - `$LOG`: the game log file `$CONFIG_DIR/Logs/dcs.log`.
 
 You need
-to add a few "dll overrides" for the game to work. As of 2.9.12, `wbemprox` needs to be overridden.
+to add a "dll override" for the game to work. As of 2.9.12, `wbemprox=n` needs to be overridden.
 In lutris, you can do so under "runner options".
 
-For wine and steam proton, you can do so using the `WINEDLLOVERRIDES`
-flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides
+For steam proton, you can do so using the `WINEDLLOVERRIDES`
+flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides  
+```WINEDLLOVERRIDES='wbemprox=n'```
 
-```
-WINEDLLOVERRIDES='wbemprox=n'
-```
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
-make sure you have used it to install the game files at this point and to duplicate the confg
+make sure you have used it to install the game files at this point and duplicate the confg
 in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
 
 So at this point you should get a black screen a little bit smaller than your display, that'll be the launcher
@@ -85,26 +83,18 @@ With that change, you should be able to log in but once the game starts you
 will see a black screen. you have two options from here, proceede with WINE or use Proton under steam(Standalone running under steam)
 
 ### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)  
-### If you proceede using wine you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
+#### If you proceede using wine you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
 see [Porting to Steam](#Porting-to-Steam) for using proton(Via Steam), just skip this step
 
-To fix this, ~create a symlink from   
-`$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~   
-$INSTALL_dir isn't defined anywhere soooo....
 I have a workaround for this problem however it removes the in game voice chat functionality
-witch I find to be a downside but 
-```
-¯\_(ツ)_/¯
-```
-you'll need to modify the optionsDB.lua located at (modded ver included at the top of page)  
+witch I find to be a downside but ```¯\_(ツ)_/¯```
+
+you'll need to modify the optionsDB.lua(modified ver included at the top of page) located at   
 ```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```  
-and remove the calls to voicechat on lines 118-129 and 437,
+and remove the calls to voicechat on lines 118-129 and 453(not exact look for voicechat in that area),
 
 The game should now start.
 
-You may also see a crash when loading a mission. This might be caused by a
-Arial missing font which can not be distributed with Wine, if you can 
-just grab a copy from a windows install
 
 ### Porting-to-Steam
 
@@ -131,6 +121,10 @@ now that you've found the Steam proton prefix, you need to link(I used a symlink
 to the one in your lutris install for instance the command I used in arch was:   
 ```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```   
 (honesly linking everything from the wine prefix would probably be a good idea but im just lazy)
+
+You may also see a crash when loading a mission. This might be caused by a
+Arial missing font which can not be distributed with Wine, if you can 
+just grab a copy from a windows install
 
 ## Known issues and fixes
 
