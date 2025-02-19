@@ -98,7 +98,7 @@ and remove the calls to voicechat on lines 118-129 and 453 look for the lines hi
 The game should now start.
 
 
-### Porting-to-Steam
+## Porting-to-Steam
 
 so first thing you're gonna want to do is add the DCS.exe as a steam game
 
