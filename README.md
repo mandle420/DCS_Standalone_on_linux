@@ -80,16 +80,18 @@ you'll need a options.lua to bypass the launcher, you may not have a savedgames 
 options.lua(included on this page at the top) in   
 ```/drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
 
-### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)
-see [Porting to Steam](#Porting-to-Steam) for using proton(Via Steam), just skip this step
-
 
 With that change, you should be able to log in but once the game starts you
-will see a black screen. To fix this, ~create a symlink from   
-`$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~
+will see a black screen. you have two options from here, proceede with WINE or use Proton under steam(Standalone running under steam)
 
+### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)  
+### If you proceede using wine you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
+see [Porting to Steam](#Porting-to-Steam) for using proton(Via Steam), just skip this step
+
+To fix this, ~create a symlink from   
+`$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~   
 $INSTALL_dir isn't defined anywhere soooo....
-but I have a different workaround for this problem however it removes the in game voice chat functionality
+I have a workaround for this problem however it removes the in game voice chat functionality
 witch I find to be a downside but 
 ```
 ¯\_(ツ)_/¯
@@ -105,11 +107,6 @@ Arial missing font which can not be distributed with Wine, if you can
 just grab a copy from a windows install
 
 ### Porting-to-Steam
-
-So now you have a working install via lutris but it dosent detect your VR heaset 
-well let's fix that,
-
-the easiest way ive found to do so is to port your wine prefix to steam
 
 so first thing you're gonna want to do is add the DCS.exe as a steam game
 
