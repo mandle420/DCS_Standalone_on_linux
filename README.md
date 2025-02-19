@@ -35,8 +35,8 @@ To chat about DCS World on Linux there is a Matrix chat available:
 ### Getting it working through Lutris
 
 An easy way to get started is to use Lutris. There are [two install scripts
-for standalone](https://lutris.net/games/dcs-world/) on Lutris which may just work out of the box.
-Much of this guide has been tested to work successfully with the 'Eagle Dynamics version'.
+for standalone](https://lutris.net/games/dcs-world/) on Lutris
+![Lutris Install Scripts](images/DCS.openbeta.png)
 
 ### Getting it working manually
 
