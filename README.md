@@ -30,6 +30,7 @@ To chat about DCS World on Linux there is a Matrix chat available:
       * [F10 Crash](#crash-on-f10)
       * [Disabled Modules](#module-disabled-by-user)
       * [Controls](#control-issues)
+   * .[Vr References](#Vr-References)
 
 ## Installation
 
@@ -175,3 +176,8 @@ will be disabled in steam too. This information is stored in
 Due to the various differences between distributions, issues with (HOTAS) controls can be hard to nail down,
 especially when Wine is involved - adding another layer of potentional problems. Users experiencing issues with
 controllers are advised to read through [the information here](https://github.com/bradley-r/Linux-Controller-Fixes/).
+
+## Vr References
+
+As far as VR on linux is concerned your milage may very but, if you havent at least attempted it before
+this should get you started https://discord.gg/qdUWFe4RDV
