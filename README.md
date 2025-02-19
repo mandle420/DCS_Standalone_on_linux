@@ -1,4 +1,4 @@
-# DCS Standalone on Linux Via Wine(lutris)/Proton(steam) any and all refrence to steam is not related to the steam vertion of the game
+# DCS Standalone on Linux Via Wine(lutris)/Proton(steam) any and all refrence to steam is not related to the steam version of the game
 
 
 DCS World can run on linux through Wine and Proton, though it does take some
