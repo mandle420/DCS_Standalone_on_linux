@@ -80,7 +80,7 @@ you'll need a options.lua to bypass the launcher, you may not have a savedgames 
 options.lua in ``` /drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
 
 ## NOTE: the following dosen't seem to be an issue if you use proton
-see the next section for using proton, just skip this step
+see [Porting to Steam](#Porting-to-Steam) for using proton, just skip this step
 
 With that change, you should be able to log in but once the game starts you
 will see a black screen. To fix this, ~create a symlink from
