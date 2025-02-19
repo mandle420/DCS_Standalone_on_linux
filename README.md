@@ -93,7 +93,7 @@ witch I find to be a downside but
 ```
 ¯\_(ツ)_/¯
 ```
-you'll need to modify the optionsDB.lua located at  
+you'll need to modify the optionsDB.lua located at (modded ver included at the top of page)  
 ```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```  
 and remove the calls to voicechat on lines 118-129 and 437,
 
