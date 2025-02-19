@@ -87,9 +87,9 @@ good job whoever wrote this cause it makes no sense, where is $INSTALL_dir, hmmm
 anyway if any of you figure it out feel free to let me know, but I have a different
 workaround for this problem however it removes the in game voice chat functionality
 witch I find to be a downside however $INSTALL_dir isn't defined anywhere soooo
-...
+```
 ¯\_(ツ)_/¯
-...
+```
 
 The game should now start.
 
