@@ -30,7 +30,7 @@ To chat about DCS World on Linux there is a Matrix chat available:
       * [F10 Crash](#crash-on-f10)
       * [Disabled Modules](#module-disabled-by-user)
       * [Controls](#control-issues)
-   * .[Vr References](#Vr-References)
+   * [Vr References](#Vr-References)
 
 ## Installation
 
@@ -179,5 +179,5 @@ controllers are advised to read through [the information here](https://github.co
 
 ## Vr References
 
-As far as VR on linux is concerned your milage may very but, if you havent at least attempted it before
+As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
 this should get you started https://discord.gg/qdUWFe4RDV
