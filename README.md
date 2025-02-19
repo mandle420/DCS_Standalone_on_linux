@@ -83,6 +83,11 @@ WINEDLLOVERRIDES='wbemprox=n;msdmo=n'
 With that change, you should be able to log in but once the game starts you
 will see a black screen. To fix this, create a symlink from
 `$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.
+good job whoever wrote this cause it makes no sense, where is $INSTALL_dir, hmmmm?
+anyway if any of you figure it out feel free to let me know, but I have a different
+workaround for this problem however it removes the in game voice chat functionality
+witch I find to be a downside however $INSTALL_dir isn't defined anywhere soooo
+¯\_(ツ)_/¯
 
 The game should now start.
 
