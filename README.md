@@ -79,20 +79,22 @@ So at this point you should get a black screen a little bit smaller than your di
 you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
 options.lua in ``` /drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
 
+## NOTE: the following dosen't seem to be an issue if you use proton
+see the next section for using proton, just skip this step
+
 With that change, you should be able to log in but once the game starts you
 will see a black screen. To fix this, ~create a symlink from
 `$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~
 
-good job whoever wrote this cause it makes no sense, where is $INSTALL_dir, hmmmm?
-anyway if any of you figure it out feel free to let me know, but I have a different
-workaround for this problem however it removes the in game voice chat functionality
-witch I find to be a downside however $INSTALL_dir isn't defined anywhere soooo
+$INSTALL_dir isn't defined anywhere soooo....
+but I have a different workaround for this problem however it removes the in game voice chat functionality
+witch I find to be a downside but 
 ```
 ¯\_(ツ)_/¯
 ```
 you'll need to modify the optionsDB.lua located at 
 ```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```
-and remove the calls to voicechat on lines ******,
+and remove the calls to voicechat on lines 118-129 and 437,
 
 The game should now start.
 
@@ -126,16 +128,18 @@ now once you're there, youll see alot of numbered folders, one of those is the
 new DCS prefix, it's probably going to be one of the longer ones mine is 
 /compatdata/2946498850/pfx
 
-now that you've found the Steam proton prefix, you need to link(I used a symlink) the
-```/pfx/drive_c/users/steamuser/Saved Games/DCS<.openbeta?>/``` 
+now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder
+```/pfx/drive_c/users/steamuser/Saved Games/``` 
 to the one in your lutris install
+(honesly linking everything from the wine prefix would probably be a good idea but im just lazy)
 
 ## Known issues and fixes
 
 If things go wrong, the primary thing to look for is the game log - 
 `drive_c/users/$USERNAME/Saved Games/DCS<possibly openbeta>/Logs/dcs.log`.
 After crashes, the crash reporter will spam a bit about various DLLs being used
-recently, and just before that, the cause of the crash should be visible.
+recently, and just before that, the cause of the crash should be visible and if that
+yelds no result try turning it off and back on again(your PC/Device) lol.
 
 Sometimes crashes happen before the game gets far enough to create a log file.
 Then your best bet is to read the Proton output. In both Lutris and Steam, you can easily get
