@@ -16,6 +16,7 @@ note: This doc will only cover getting the game running via the process I used
 
    * [Installation](#installation)
       * [Lutris](#getting-it-working)
+      * [Porting to Steam](#Porting-to-Steam)
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [Smoke](#white-smoke-and-some-other-particles-renders-weirdly)
       * [F16 RWR](#f16-rwr-shows-a-opaque-square-on-the-rwr-over-the-priority-contact)
@@ -57,8 +58,7 @@ First, some variables to avoid repetition:
 - `$USERNAME`: refers to the wine user. On standalone, this is your normal
   username and on steam it is `steamuser`.
 - `$INSTALL_DIR`: the location in program files where the game is installed.
-  On standalone: `drive_c/Program Files/Eagle Dynamics/DCS` or `DCS World OpenBeta`. On Steam, it's
-  `/home/frans/.local/share/Steam/steamapps/common/DCSWorld`
+  On standalone: `drive_c/Program Files/Eagle Dynamics/DCS` or `DCS World OpenBeta`.
 - `$CONFIG_DIR`: the place where user config stuff is stored
   `drive_c/users/$USERNAME/Saved Games/DCS<possibly openbeta>`.
 - `$LOG`: the game log file `$CONFIG_DIR/Logs/dcs.log`.
@@ -81,6 +81,7 @@ options.lua in ``` /drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/o
 With that change, you should be able to log in but once the game starts you
 will see a black screen. To fix this, ~create a symlink from
 `$INSTALL_DIR/bin/webrtc_plugin.dll` to `$INSTALL_dir/webrtc_plugin.dll`.~
+
 good job whoever wrote this cause it makes no sense, where is $INSTALL_dir, hmmmm?
 anyway if any of you figure it out feel free to let me know, but I have a different
 workaround for this problem however it removes the in game voice chat functionality
@@ -88,18 +89,16 @@ witch I find to be a downside however $INSTALL_dir isn't defined anywhere soooo
 ```
 ¯\_(ツ)_/¯
 ```
+you'll need to modify the optionsDB.lua located at ``/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua``
+and remove the calls to voicechat on lines ******,
 
 The game should now start.
 
 You may also see a crash when loading a mission. This might be caused by a
 Arial missing font which can not be distributed with Wine, if you can 
-just 
+just grab a copy from a windows install
 
-## SteamVR
-
-The game seems to work fine with steamVR. This is only possible in the steam
-version, and seems to currently only work in proton 6.3.8 (possibly in future
-proton versions, but not GE or TKG)
+### Porting-to-Steam
 
 ## Known issues and fixes
 
