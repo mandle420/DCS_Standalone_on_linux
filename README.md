@@ -111,7 +111,7 @@ so first thing you're gonna want to do is add the DCS.exe as a steam game
 
 ![Porting to Steam](images/DCStoSteam.png)
 
-then add these launch arguments(some debug info and the .dll overrides from earlier)
+then add these launch options(some debug info and the .dll overrides from earlier)
 ```WINEDLLOVERRIDES="wbemprox=n,msdmo=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
 
 also I found the most sucess with proton experimental but try different ones out see what works
