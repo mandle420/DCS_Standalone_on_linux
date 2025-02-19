@@ -72,15 +72,16 @@ flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides
 WINEDLLOVERRIDES='wbemprox=n'
 ```
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
-make sure you have used it to intall the game files at this point and to duplicate the confg
-in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not dosent matter
+make sure you have used it to install the game files at this point and to duplicate the confg
+in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
 
 So at this point you should get a black screen a little bit smaller than your display, that'll be the launcher
 you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
-options.lua in ``` /drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
+options.lua(included on this page at the top) in   
+```/drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
 
-## NOTE: the following dosen't seem to be an issue if you use proton
-see [Porting to Steam](#Porting-to-Steam) for using proton, just skip this step
+### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)
+see [Porting to Steam](#Porting-to-Steam) for using proton(Via Steam), just skip this step
 
 With that change, you should be able to log in but once the game starts you
 will see a black screen. To fix this, ~create a symlink from
@@ -92,8 +93,8 @@ witch I find to be a downside but
 ```
 ¯\_(ツ)_/¯
 ```
-you'll need to modify the optionsDB.lua located at 
-```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```
+you'll need to modify the optionsDB.lua located at  
+```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```  
 and remove the calls to voicechat on lines 118-129 and 437,
 
 The game should now start.
@@ -113,7 +114,7 @@ so first thing you're gonna want to do is add the DCS.exe as a steam game
 
 ![Porting to Steam](images/DCStoSteam.png)
 
-then add these launch options(some debug info and the .dll override from earlier)
+then add these launch options(some debug info and the .dll override from earlier)  
 ```WINEDLLOVERRIDES="wbemprox=n" WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command%```
 
 also I found the most sucess with proton experimental but try different ones out see what works
@@ -122,16 +123,15 @@ now that that's done, launch it to create the prefix in steam
 you'll notice that it still has the launcher issue, thats because you need
 to add the userdata from the wine prefix to the steam prefix
 
-steam proton prefixes are stored in the compatdata folder usually around here
-```/home/<USRNAME>/.local/share/Steam/steamapps/compatdata/```
+steam proton prefixes are stored in the compatdata folder usually around here   
+```/home/<USRNAME>/.local/share/Steam/steamapps/compatdata/```   
 now once you're there, youll see alot of numbered folders, one of those is the
-new DCS prefix, it's probably going to be one of the longer ones mine is 
-/compatdata/2946498850/pfx
+new DCS prefix, it's probably going to be one of the longer ones mine is /compatdata/2946498850/pfx
 
-now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder 
-```/pfx/drive_c/users/steamuser/Saved Games/``` 
-to the one in your lutris install for instance the command I used in arch was: 
-```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/``` 
+now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder   
+```/pfx/drive_c/users/steamuser/Saved Games/```   
+to the one in your lutris install for instance the command I used in arch was:   
+```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```   
 (honesly linking everything from the wine prefix would probably be a good idea but im just lazy)
 
 ## Known issues and fixes
