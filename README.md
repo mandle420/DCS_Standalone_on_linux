@@ -1,20 +1,16 @@
-# DCS on Linux
+# DCS Standalone on Linux Via Wine/Proton
 
 DCS World can run on linux through Wine and Proton, though it does take some
-work to get running. The game has two distribution methods: standalone and
-Steam. Both have worked successfully, though often one will be broken and the
-other work; if one fails, it can be a good idea to try the other.
-
-The game also has two versions: stable and OpenBeta. OpenBeta is used
-by most MP servers, and stable is updated less frequently (the advantage of
-stable for us being that we don't have to work around Linux bugs every 2 weeks
-when a new OB is released.)
+work to get running.
 
 Thanks to everyone who has helped getting the game running and debugging issues
 in the [proton issue
-tracker](https://github.com/ValveSoftware/Proton/issues/1722). Unfortunately,
-workarounds easily get buried there, so I decided to create this document with
-known, up-to-date methods for getting things to work.
+tracker](https://github.com/ValveSoftware/Proton/issues/1722) and in the 
+Matrix chat: https://matrix.to/#/#dcs-on-linux:matrix.org. Unfortunately,
+workarounds easily get buried there and the OG of this Doc is outdated
+(I will try to keep this one up to date but I make no promises),
+so I decided to edit with known, up-to-date methods for getting things to work.
+note: This doc will only cover getting the game running via the process I used
 
 Outside the proton thread, additional credit goes to @akp for the initial revision
 of the Opentrack instructions, and @bradley-r for the Linuxtrack, Scratchpad and V4L2 info.
@@ -26,7 +22,6 @@ To chat about DCS World on Linux there is a Matrix chat available:
 
    * [Installation](#installation)
       * [Lutris](#getting-it-working-through-lutris)
-      * [Manual](#getting-it-working-manually)
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [Smoke](#white-smoke-and-some-other-particles-renders-weirdly)
       * [F16 RWR](#f16-rwr-shows-a-opaque-square-on-the-rwr-over-the-priority-contact)
@@ -34,12 +29,6 @@ To chat about DCS World on Linux there is a Matrix chat available:
       * [F10 Crash](#crash-on-f10)
       * [Disabled Modules](#module-disabled-by-user)
       * [Controls](#control-issues)
-   * [Additional Software](#other-software)
-      * [SRS](#srs)
-      * [Scratchpad](#dcs-scratchpad)
-      * [Opentrack](#headtracking-via-opentrack)
-      * [Linuxtrack](#headtracking-via-linuxtrack)
-      * [V4L2](#a-note-on-headtracking)
 
 ## Installation
 
@@ -184,139 +173,3 @@ will be disabled in steam too. This information is stored in
 Due to the various differences between distributions, issues with (HOTAS) controls can be hard to nail down,
 especially when Wine is involved - adding another layer of potentional problems. Users experiencing issues with
 controllers are advised to read through [the information here](https://github.com/bradley-r/Linux-Controller-Fixes/).
-
-## Other software
-
-While not included in DCS, here are some resources for getting external
-software often used with the game.
-
-### SRS
-
-[SRS](http://dcssimpleradio.com/) is used by a lot of multiplayer servers. It
-too works with some tweaks.
-
-Install the game plugin by following the instructions in the SRS readme.
-
-*Note* As of SRS 19.0.1, this method no longer works. As a replacement, I have
-a custom SRS client that *kind of* works here: https://gitlab.com/TheZoq2/srsrs.
-
-It's easiest to run SRS in its own prefix. Create one, and then run `winetricks
-dotnet452 win10` in that prefix. Now you can start `SR-ClientRadio.exe` from
-the downloaded files.
-
-Credit: https://github.com/ciribob/DCS-SimpleRadioStandalone/issues/409.
-
-### DCS Scratchpad
-
-For those who want to make use of the excellent [DCS-Scratchpad utility](https://github.com/rkusa/dcs-scratchpad), 
-[follow the installation instructions](https://github.com/rkusa/dcs-scratchpad) as normal. 
-The scratchpad should appear in game, but when typing with it's '*window*' focused, nothing will appear. 
-This is a font issue - by default, DCS-Scratchpad uses `CONSOLA.TTF`, a font not installed with Wine. 
-Either install it with Winetricks, or edit line 172 in `Scripts/Scratchpad/ScratchpadWindow.dlg` to 
-an installed font of your choosing, such as `CALIBRI.TTF`. Text should now appear in the scratchpad window. 
-
-### Headtracking via Opentrack
-
-**Users of custom/Lutris/non-system Wine versions, take note: 
-Due to [issues with libwine](https://github.com/opentrack/opentrack/issues/1236), Opentrack does not support prefixes using versions of Wine
-different to that of the system (and thus the one Opentrack recognises), making usage of
-custom/performance-enhanced Wine versions impossible alongside it. Either run DCS with your
-system Wine, or try Linuxtrack instead. Proton is unaffected.**
-
-[Opentrack](https://github.com/opentrack/opentrack) can emulate a gamepad which is read and can be mapped to the
-corresponding controls in the game. This should work out of the box, simply
-select `lubudev joystick receiver` as the output in opentrack.
-
-Opentrack can work out of the box with `libevdev joystick output`, however this requires you to bind headtracking
-for every aircraft (and doesn't play well with Il-2 BoX or Falcon BMS.)
-
-A better option, then, is to enable Wine (Freetrack and NPclient) output instead of joystick axis output. This allows
-the use of headtracking across all aircraft (DCS interprets the input as an actual headtracker rather than joystick), and
-should play well with other titles such as IL-2 BoX and Falcon BMS.
-
-If you are building Opentrack from the [AUR](https://aur.archlinux.org/packages/opentrack/), you can modify the PKGBUILD.
-Replace line 34: `-DSDK_WINE_PREFIX=/ \` with `-DSDK_WINE=ON/ \`. *This package now seems to include Wine output by default.*
-
-Otherwise, you can clone the source code and follow [these
-instructions](https://github.com/opentrack/opentrack/wiki/Building-on-Linux).
-**After you cd into the directory, run `ccmake .`, press c to configure, turn
-ON SDK_WINE, c to configure and g to generate.**
-
-DCS still requires `HeadTracker.dll` in the `bin` directory for opentrack to
-function.  Download Eagle Dynamics API interface DLL (64-bit) from
-http://facetracknoir.sourceforge.net/information_links/download.htm.
-
-You must open opentrack and start tracking before you launch DCS. Be sure to
-point the output to the correct wine/proton prefix. In addition, you'll need to
-launch DCS with WINEESYNC=1 or WINEFSYNC=1 if you enable those in the wine
-output settings.
-
-![Opentrack Wine Implementation](images/opentrackwine.png)
-
-Context: https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-749061952
-
-### Headtracking via Linuxtrack
-
-In the case the Opentrack fails to work (as outlined above, it cannot support custom Wine versions
-such as those offered by Lutris) or you wish to try an alternative, [Linuxtrack](https://github.com/uglyDwarf/linuxtrack/) 
-offers similar functionality. 
-
-Begin by installing the [universal Linux package](https://github.com/uglyDwarf/linuxtrack/wiki/universal-Linuxtrack-package).
-Once complete, run `ltr-gui` and under the 'Misc' tab, select (re)install TrackIR firmware.) Linuxtrack
-will attempt to complete this task for you, but, at time of writing, the TrackIR download links have changed, so
-you may need to do this manually. Download the latest TrackIR firmware, install it to your default (or
-temporary) prefix, then select 'Extract from unpacked'.
-
-![Linuxtrack Firmware Extractor](images/linuxtrackextractor.png)
-
-Navigate to the prefix you used, and select the TrackIR 5 folder under `/drive_c/Program Files (x86)/NaturalPoint/`. 
-Once done, you will be prompted to install the Wine-side components; select the prefix DCS is installed under
-(only standalone has been tested.) `ltr-gui` can now be closed, and provided Linuxtrack is running
-(and has been configured), use the `FreeTrackTester.exe` present in the second prefix `/drive_c/Program Files 
-(x86)/Linuxtrack/`. You should see the values changing, and thus controlling the view in-game.
-
-![Linuxtrack/Freetrack Test Dialogue](images/linuxtrackfreetracktest.png)
-
-Note that `HeadTracker.dll` need not be present as Linuxtrack replicates TrackIR directly (in the case of DCS, at least.)
-
-### A note on headtracking
-
-This only applies if an IR-modified camera is used as input to your headtracking program of choice, but can be very useful if 
-so. Video4Linux(2) "*is a collection of device drivers and an API for supporting realtime video capture on Linux systems*" 
-and thus is the utility used by Opentrack and Linuxtrack to address IR cameras - often the venerable PS3Eye. V4L2 handles the 
-configuration of attached cameras, and so is the utility to use to change any settings.
-
-![QV4L2 Test Dialogue](images/V4L2test.png)
-
-For IR-modded cameras, the settings of most significance are gain, auto-exposure and (automatic) white balance. The PS3Eye, 
-not having any physical controls aside from an FOV setting, can be configured using the V4L2 test utility ([`v4l-utils`](https://pkgs.org/download/v4l-utils)), 
-however changes made here do not persist across reboots. Opentrack seems to have this 
-utility built-in, but for Linuxtrack users or those needing to change camera settings system-wide, there is a solution:
-
-   * Ensure `v4l-utils` is installed.
-      * Video4Linux, providing core functionality for attached video devices, is available on all mainline distributions. 	
-      * Find `v4l-utils` for your distribution [here](https://pkgs.org/download/v4l-utils).
-   * Open the V4L2 test utility, and select the correct camera if there are multiple connected.
-      * Run `qv4l2` at the command line to launch the utility.
-      * If multiple cameras are connected, look in `/dev/` for `videoX` devices.
-   * Configure the settings to a suitable point. Of interest here are any automatic features that may interfere with tracking.
-      * Settings for an IR-modded PS3Eye are included below.
-      * As a general rule, automatic gain, white balance and (possibly) exposure should be disabled.
-   * Once done, return to a command line and execute `v4l2-ctl --all`. This lists all the configurable values of the camera.
-      * Framerate and pixel/capture format will be listed, but these cannot be changed via this method for the PS3Eye.
-   * Using this information, make a `.sh` file with a relevant name (such as `IRcamfix.sh`) with contents in the format:
-      > #!/bin/bash
-      > --set-ctrl=brightness=0 \
-      > --set-ctrl=contrast=32 \
-      > --set-ctrl=saturation=0 \
-      > --set-ctrl=gain_automatic=0 \
-      > --set-ctrl=gain=0 \
-      > --set-ctrl=power_line_frequency=0 \
-      > --set-ctrl=sharpness=0 \
-      > --set-ctrl=white_balance_automatic=0
-      * This accomplishes the same thing as changing these values through the GUI but allows it to be done automatically.
-      * These settings have been found to work well with a PS3Eye camera, but may need adjusting depending on use conditions.
-   * Save this file, mark it as executable and add it to an autorun utility such as Plasma's autostart or Lutris' pre-launch script.
-      * This will apply these changes when the start condition is triggered by their respective programs.
-
-With this done, the camera will have these changes applied automatically, allowing immediate use of headtracking without the need to preemptively tinker with a GUI before every flight.
