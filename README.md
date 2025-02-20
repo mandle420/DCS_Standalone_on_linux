@@ -17,10 +17,11 @@ note: This doc will only cover getting the game running via the process I used
 
    * [Installation](#Getting-it-installed-via-Lutris)
       * [Lutris](#getting-it-working-with-Lutris)
-      * [Black screen Launcher bypass](#black-screen-launcher-bypass)
+      * [Black screen Launcher bypass](#Black-screen-launcher-bypass)
+      * [Voice-Chat-Bug](#Voice-Chat-Bug)
       * [Porting to Steam](#Porting-to-Steam)
    * [Bugs and Fixes](#known-issues-and-fixes)
-      * [Broken Contrails](##Contrails-are-puffy/broken-up)
+      * [Broken Contrails](#Contrails-are-puffy/broken-up)
    * [Vr References](#Vr-References)
 
 ## Getting it installed via Lutris
@@ -39,54 +40,45 @@ to add these .dll and font.
 ```
 vcrun2019 corefonts xact d3dcompiler_43
 ```
-you can open winetricks in lutris by clicking on DCS Do not open 1 LMB click only
+you can open winetricks in lutris by clicking on DCS Do not open 1 LMB click only  
+`image here`
+
+You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
+In lutris, you can do so under "runner options".
+`image here`
 
 #### (updated for 2.9.12.5336)
 
 This guide only pertains to the standalone version, if you plan on using
 DCS with a VR headset, you'll want to use proton and the easiest way i've found
 to get it working is through Steam(not the steam version of the game but adding
-the game to Steam)
-
-First, some variables to avoid repetition:
-
-- `$USERNAME`: refers to the wine user. On standalone, this is your normal
-  username and on steam it is `steamuser`.
-- `$INSTALL_DIR`: the location in program files where the game is installed.
-  On standalone: `drive_c/Program Files/Eagle Dynamics/DCS` or `DCS World OpenBeta`.
-- `$CONFIG_DIR`: the place where user config stuff is stored
-  `drive_c/users/$USERNAME/Saved Games/DCS<possibly openbeta>`.
-- `$LOG`: the game log file `$CONFIG_DIR/Logs/dcs.log`.
-
-You need
-to add a "dll override" for the game to work. As of 2.9.12, `wbemprox=n` needs to be overridden.
-In lutris, you can do so under "runner options".
-
-For steam proton, you can do so using the `WINEDLLOVERRIDES`
-flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides  
-```WINEDLLOVERRIDES='wbemprox=n'```
+the game to Steam) however get it working Via Wine and Lutris first
 
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg
 in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
+`image here`
 
-##Black screen Launcher bypass
+## Black screen launcher bypass
 
-So at this point you should get a black screen a little bit smaller than your display, that'll be the launcher
+So at this point you should get a black screen a little bit smaller than your display
+```image here```
+that'll be the launcher
 you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
-options.lua(included on this page at the top) in   
+options.lua(included on this page at the top(it's my personal one so your settings will need to be changed)) in   
 ```/drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
 
 
 With that change, you should be able to log in but once the game starts you
-will see a black screen. you have two options from here, proceede with WINE or use Proton under steam(Standalone running under steam)
+will see a black screen. you have two options from here, proceede with Wine or use Proton under steam(Recommended for VR)
 
+## Voice Chat Bug
 ### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)  
 #### If you proceede using wine you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
 see [Porting to Steam](#Porting-to-Steam) for using proton(Via Steam), just skip this step
 
 I have a workaround for this problem however it removes the in game voice chat functionality
-witch I find to be a downside but ```¯\_(ツ)_/¯```
+witch I find to be a downside but `¯\_(ツ)_/¯`
 
 you'll need to modify the optionsDB.lua(modified ver included at the top of page) located at   
 ```/INSTALL_DIR/MissionEditor/modules/Options/optionsDb.lua```  
