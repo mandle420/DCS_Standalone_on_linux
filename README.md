@@ -16,7 +16,7 @@ note: This doc will only cover getting the game running via the process I used
 ## Contents
 
    * [Installation](#Getting-it-installed-via-Lutris)
-      * [Lutris](#getting-it-working)
+      * [Lutris](#getting-it-working-with-Lutris)
       * [Porting to Steam](#Porting-to-Steam)
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [Smoke](#white-smoke-and-some-other-particles-renders-weirdly)
@@ -29,20 +29,21 @@ note: This doc will only cover getting the game running via the process I used
 
 ## Getting it installed via Lutris
 
-An easy way to get started is to use Lutris. There are [two install scripts
+There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
 I used the latter labeled Standalone Open Beta version, but they both should work
 as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked.
 
-### Getting it working
+### Getting it working with Lutris
 
 Both versions need some winetricks applied.    
 Start the game once first to create the prefix, then use lutris's winetricks
 to add these .dll and font.
 ```
-<tricks command> vcrun2019 corefonts xact d3dcompiler_43
+vcrun2019 corefonts xact d3dcompiler_43
 ```
+you can open winetricks in lutris by clicking on DCS Do not open 1 LMB click only
 
 #### (updated for 2.9.12.5336)
 
@@ -125,10 +126,6 @@ to the one in your lutris install for instance the command I used in arch was:
 ### On Arch a filepath with spaces and either be added with ["/File Path/"] or [/File\ Path/] different systems may vary, check your respective wiki
 (honesly linking everything from the wine prefix will be neccisary but if your lazy like me just copy paste all the relevant folders from the wine prefix to the proton one)
 
-You may also see a crash when loading a mission. This might be caused by a
-Arial missing font which can not be distributed with Wine, if you can 
-just grab a copy from a windows install
-
 ## Known issues and fixes
 
 If things go wrong, the primary thing to look for is the game log - 
@@ -142,69 +139,13 @@ Then your best bet is to read the Proton output. In both Lutris and Steam, you c
 this by starting them from a terminal.
 
 If you can't find an issue, or have found a solution for one, please discuss it in
-the [proton issue](https://github.com/ValveSoftware/Proton/issues/1722).
+the .[matix](https://matrix.to/#/#dcs-on-linux:matrix.org) chat so I can update the guide
 
-### White smoke and some other particles renders weirdly
-
-This is a long standing issue, most likely related to texture loading and tesselation. 
-Luckily, it is just a visual artefact that can be (largely) ignored.
-
-### F16 RWR shows a opaque square on the RWR over the priority contact
-
-This issue occurs because some textures fail to load for an unknown reason. The
-fix is simple: open the file
-`${INSTALL_DIR}/Mods/aircraft/F-16C/Cockpit/IndicationResources/RWR/indication_RWR.tga`
-with an image editor (GIMP or Krita have been used successfully), then just
-re-export the file. The RWR should now render correctly.
-
-### Missing multiplayer server list
-
-For a few 2.5.6 versions, the server browser did not work, and neither did
-directly connecting to servers using connect by IP. However, there is a
-workaround.
-
-Edit `$INSTALL_DIR/MissionEditor/modules/mul_password.lua`. Find the function `onChange_btnOk` and add the
-line `onlyConnect = true` to the start of the function like so.
-
-```lua
-function onChange_btnOk()  
-    onlyConnect = true -- This line was added
-	if onlyConnect == true then
-	-- ...
-end
-```
-
-Now you should be able to use the connect by IP button to join servers, but the
-server list is still broken. Luckily, a server list is available if you log in
-on https://www.digitalcombatsimulator.com/, and from there you can get the IP
-of servers.
-
-### Crash on F10
-
-For many DCS versions and/or Wine versions, if you press F10 (the default
-binding to bring up the map) the game will crash ("permanently" on steam, see
-fixing steam permanent crashing (above) for a fix).  Luckily, the problem is with the
-F10 key itself, not the map, so rebind it to something else you see fit. The
-same applies for the communication menu.
-
-### Module disabled by user
-
-You probably won't run into this, but if you do, there is a fix.
-
-One of your modules is missing, it is not shown in the list at the bottom of
-the main menu, and you can't use it. On standalone, check if it is enabled in
-the module manager. On steam however, things are a bit more tricky. If you
-copied your configs between standalone and steam, module manager disabled mods
-will be disabled in steam too. This information is stored in
-`$CONFIG_DIR/enabled.lua` or something similar. Remove it to fix the issues.
-
-### Control issues
-
-Due to the various differences between distributions, issues with (HOTAS) controls can be hard to nail down,
-especially when Wine is involved - adding another layer of potentional problems. Users experiencing issues with
-controllers are advised to read through [the information here](https://github.com/bradley-r/Linux-Controller-Fixes/).
+## Contrails are puffy/broken up
+yeah it's like that, i dont know why but it can be ignored
+if you fix it let me know
 
 ## Vr References
 
 As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
-this should get you started https://discord.gg/qdUWFe4RDV
+this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
