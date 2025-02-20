@@ -121,8 +121,9 @@ new DCS prefix, it's probably going to be one of the longer ones mine is /compat
 now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder   
 ```/pfx/drive_c/users/steamuser/Saved Games/```   
 to the one in your lutris install for instance the command I used in arch was:   
-```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```   
-(honesly linking everything from the wine prefix would probably be a good idea but im just lazy)
+```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```  
+### On Arch a filepath with spaces and either be added with ["/File Path/"] or [/File\ Path/] different systems may vary, check your respective wiki
+(honesly linking everything from the wine prefix will be neccisary but if your lazy like me just copy paste all the relevant folders from the wine prefix to the proton one)
 
 You may also see a crash when loading a mission. This might be caused by a
 Arial missing font which can not be distributed with Wine, if you can 
