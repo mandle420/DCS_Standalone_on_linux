@@ -13,18 +13,14 @@ workarounds easily get buried there and the OG of this Doc is outdated
 so I decided to edit with known, up-to-date methods for getting things to work.
 note: This doc will only cover getting the game running via the process I used
 
-## Contents
+## Contents#Black screen Launcher bypass
 
    * [Installation](#Getting-it-installed-via-Lutris)
       * [Lutris](#getting-it-working-with-Lutris)
+      * [Black screen Launcher bypass](#black-screen-launcher-bypass)
       * [Porting to Steam](#Porting-to-Steam)
    * [Bugs and Fixes](#known-issues-and-fixes)
-      * [Smoke](#white-smoke-and-some-other-particles-renders-weirdly)
-      * [F16 RWR](#f16-rwr-shows-a-opaque-square-on-the-rwr-over-the-priority-contact)
-      * [Server List](#missing-multiplayer-server-list)
-      * [F10 Crash](#crash-on-f10)
-      * [Disabled Modules](#module-disabled-by-user)
-      * [Controls](#control-issues)
+      * [Broken Contrails](##Contrails-are-puffy/broken-up)
    * [Vr References](#Vr-References)
 
 ## Getting it installed via Lutris
@@ -73,6 +69,8 @@ flag https://wiki.winehq.org/Wine_User's_Guide#WINEDLLOVERRIDES.3DDLL_Overrides
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg
 in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
+
+##Black screen Launcher bypass
 
 So at this point you should get a black screen a little bit smaller than your display, that'll be the launcher
 you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
@@ -145,7 +143,13 @@ the .[matix](https://matrix.to/#/#dcs-on-linux:matrix.org) chat so I can update 
 yeah it's like that, i dont know why but it can be ignored
 if you fix it let me know
 
-## Vr References
+# Vr References
 
 As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
 this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
+
+# 3rd party programs/tools
+
+##Opentrack
+Opentrack is a 3rd party headtracking software that can use TrackIR hardware
+https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-steam-flatpak
