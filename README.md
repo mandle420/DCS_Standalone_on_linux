@@ -48,11 +48,11 @@ to add these .dll and font.
 vcrun2019 corefonts xact d3dcompiler_43
 ```
 you can open winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the wine glass at the bottom of the screen  
-`image here`
+![winetricks](images/Winetricks.png)
 
 You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
 In lutris, you can do so under "runner options".
-`image here`
+![wbemprox](images/wbemprox.png)
 
 #### (updated for 2.9.12.5336)
 
@@ -63,13 +63,10 @@ the game to Steam) however keep working with Wine and Lutris for now
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg
 in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
-`image here`
 
 ## Black screen launcher bypass
 
-So at this point you should get a black screen a little bit smaller than your display
-```image here```
-that'll be the launcher
+So at this point you should get a black screen a little bit smaller than your display that'll be the launcher
 you'll need a options.lua to bypass the launcher, you may not have a savedgames dir yet so install the
 options.lua(included on this page at the top(it's my personal one so your settings will need to be changed)) in   
 ```/drive_c/users/<USRNAME>/Saved Games/DCS<.openbeta?>/Config/options.lua```
