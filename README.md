@@ -7,8 +7,8 @@ CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
 in the [proton issuetracker](https://github.com/ValveSoftware/Proton/issues/1722)
-and in the [Matrix chat](https://matrix.to/#/#dcs-on-linux:matrix.org). Unfortunately,
-workarounds easily get buried there and the OG of this Doc is outdated  
+and in the [Matrix chat](https://matrix.to/#/#dcs-on-linux:matrix.org).  
+Unfortunately, workarounds easily get buried there and the OG of this Doc is outdated  
 (I will try to keep this one up to date but I make no promises)  
 
 ## Contents
