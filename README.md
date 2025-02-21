@@ -113,7 +113,8 @@ to add the userdata from the wine prefix to the steam prefix
 steam proton prefixes are stored in the compatdata folder usually around here   
 ```/home/<USRNAME>/.local/share/Steam/steamapps/compatdata/```   
 now once you're there, youll see alot of numbered folders, one of those is the
-new DCS prefix, it's probably going to be one of the longer ones mine is /compatdata/2946498850/pfx
+new DCS prefix, it's probably going to be one of the longer ones mine is /compatdata/2946498850/pfx  
+it might be easier to find yours if you sort by creation date it should be the first/last one
 
 now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder   
 ```/pfx/drive_c/users/steamuser/Saved Games/```   
