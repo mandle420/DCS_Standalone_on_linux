@@ -1,8 +1,8 @@
 # DCS Standalone on Linux Via Wine(Lutris)/Proton(Steam)
-#### Any and all refrences to steam, are not relating to the Steam version of the game.
+#### Any and all refrences to Steam, are not relating to the Steam version of the game.
 
 DCS World can run on linux through Wine and Proton, though it does take some
-work to get running and if you want to use VR I highly recommend using proton(steam) as opposed to wine, if anything dosen't work, make sure I cannot stress this enough
+work to get running and if you want to use VR I highly recommend using proton(Steam) as opposed to wine, if anything dosen't work, make sure I cannot stress this enough
 CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
@@ -57,7 +57,7 @@ In lutris, you can do so under "runner options".
 #### (updated for 2.9.12.5336)
 
 If you plan on using DCS with a VR headset you'll want to use proton and the easiest way i've found
-to get it working, is through Steam(not the steam version of the game but adding
+to get it working, is through Steam(not the Steam version of the game but adding
 the game to Steam) however keep working with Wine and Lutris for now
 
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
@@ -73,7 +73,7 @@ options.lua(included on this page at the top(it's my personal one so your settin
 
 
 With that change, you should be able to log in but once the game starts you
-will see a black screen. you have two options from here, proceede with Wine or use Proton under steam(Recommended for VR)
+will see a black screen. you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
 
 ## Voice Chat Bug
 ### NOTE: the following dosen't seem to be an issue if you use proton(Via Steam)  
@@ -94,7 +94,7 @@ The game should now start.
 
 ## Porting-to-Steam
 
-so first thing you're gonna want to do is add the DCS.exe as a steam game
+so first thing you're gonna want to do is add the DCS.exe as a Steam game
 
 ![Porting to Steam](images/DCStoSteam.png)
 
@@ -103,20 +103,20 @@ then add these launch options(some debug info and the .dll override from earlier
 
 also I found the most sucess with proton experimental but try different ones out see what works
 
-now that that's done, launch it to create the prefix in steam
+now that that's done, launch it to create the prefix in Steam
 you'll notice that it still has the launcher issue, thats because you need
-to add the userdata from the wine prefix to the steam prefix
+to add the userdata from the wine prefix to the Steam prefix
 
-steam proton prefixes are stored in the compatdata folder usually around here   
-```/home/<USRNAME>/.local/share/Steam/steamapps/compatdata/```   
+Steam proton prefixes are stored in the compatdata folder usually around here   
+```/home/<USRNAME>/.local/share/Steam/Steamapps/compatdata/```   
 now once you're there, youll see alot of numbered folders, one of those is the
 new DCS prefix, it's probably going to be one of the longer ones mine is /compatdata/2946498850/pfx  
 it might be easier to find yours if you sort by creation date it should be the first/last one
 
 now that you've found the Steam proton prefix, you need to link(I used a symlink) the Saved Games folder   
-```/pfx/drive_c/users/steamuser/Saved Games/```   
+```/pfx/drive_c/users/Steamuser/Saved Games/```   
 to the one in your lutris install for instance the command I used in arch was:   
-```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/steamapps/compatdata/2824223594/pfx/drive_c/users/steamuser/```  
+```budderpard@PC ~> ln -s /home/budderpard/Games/dcs-world/drive_c/users/budderpard/Saved\ Games/ /home/budderpard/.local/share/Steam/Steamapps/compatdata/2824223594/pfx/drive_c/users/Steamuser/```  
 ### On Arch a filepath with spaces and either be added with ["/File Path/"] or [/File\ Path/] different systems may vary, check your respective wiki
 (honesly linking everything from the wine prefix will be neccisary but if your lazy like me just copy paste all the relevant folders from the wine prefix to the proton one)
 
@@ -148,4 +148,4 @@ this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
 
 ##Opentrack
 Opentrack is a 3rd party headtracking software that can use TrackIR hardware
-https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-steam-flatpak
+https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
