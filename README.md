@@ -10,10 +10,8 @@ in the [proton issuetracker](https://github.com/ValveSoftware/Proton/issues/1722
 and in the [Matrix chat](https://matrix.to/#/#dcs-on-linux:matrix.org). Unfortunately,
 workarounds easily get buried there and the OG of this Doc is outdated  
 (I will try to keep this one up to date but I make no promises)  
-so I decided to edit with known, up-to-date methods for getting things to work.
-note: This doc will only cover getting the game running via the process I used
 
-## Contents#Black screen Launcher bypass
+## Contents
 
    * [Before we start](#Before-we-start)
    * [Installation](#Getting-it-installed-via-Lutris)
