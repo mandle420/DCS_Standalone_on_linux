@@ -139,7 +139,7 @@ yeah it's like that, i dont know why but it can be ignored
 if you fix it let me know
 
 ## fx_5_0 error shaders not compiling
-this is caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks
+this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks
 
 # Vr References
 
