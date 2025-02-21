@@ -153,7 +153,7 @@ this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
 
 # 3rd party programs/tools
 
-##Opentrack
+## Opentrack
 Opentrack is a 3rd party headtracking software that can use TrackIR hardware
 https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
 
