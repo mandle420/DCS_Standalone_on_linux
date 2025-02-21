@@ -23,6 +23,8 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
       * [fx_5_0 error](#fx_5_0-error-shaders-not-compiling)
    * [Vr References](#Vr-References)
    * [3rd party programs/tools](3rd-party-programs/tools)
+      * [Opentrack](Opentrack)
+   * [Installing Mods](Installing-Mods)
 ## Getting it installed via Lutris
 
 There are [two install scripts
@@ -151,8 +153,9 @@ this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
 
 # 3rd party programs/tools
 
-## Opentrack
-
 ##Opentrack
 Opentrack is a 3rd party headtracking software that can use TrackIR hardware
 https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
+
+# Installing Mods
+If you are using Lutris/Steam, just navigate to the Original prefix and install them as you would on windows
