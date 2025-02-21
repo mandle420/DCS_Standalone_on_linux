@@ -15,6 +15,7 @@ note: This doc will only cover getting the game running via the process I used
 
 ## Contents#Black screen Launcher bypass
 
+   * [Before we start](#Before-we-start)
    * [Installation](#Getting-it-installed-via-Lutris)
       * [Lutris](#getting-it-working-with-Lutris)
       * [Black screen Launcher bypass](#Black-screen-launcher-bypass)
@@ -24,6 +25,13 @@ note: This doc will only cover getting the game running via the process I used
       * [Broken Contrails](#Contrails-are-puffy/broken-up)
    * [Vr References](#Vr-References)
 
+# Before we start
+
+programs you will need:  
+`Steam`  
+`Lutris`  
+`Wine`  
+
 ## Getting it installed via Lutris
 
 There are [two install scripts
@@ -31,16 +39,17 @@ for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
 I used the latter labeled Standalone Open Beta version, but they both should work
 as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked.
+this will download, the DCS updater and you should install the game
 
 ### Getting it working with Lutris
 
-Both versions need some winetricks applied.    
-Start the game once first to create the prefix, then use lutris's winetricks
+Standalone install needs some winetricks applied.    
+Start the game once first to create the prefix([here](https://wiki.archlinux.org/title/Wine#WINEPREFIX) for an explination of what a prefix is), then use lutris's winetricks
 to add these .dll and font.
 ```
 vcrun2019 corefonts xact d3dcompiler_43
 ```
-you can open winetricks in lutris by clicking on DCS Do not open 1 LMB click only  
+you can open winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the wine glass at the bottom of the screen  
 `image here`
 
 You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
@@ -49,10 +58,9 @@ In lutris, you can do so under "runner options".
 
 #### (updated for 2.9.12.5336)
 
-This guide only pertains to the standalone version, if you plan on using
-DCS with a VR headset, you'll want to use proton and the easiest way i've found
-to get it working is through Steam(not the steam version of the game but adding
-the game to Steam) however get it working Via Wine and Lutris first
+If you plan on using DCS with a VR headset you'll want to use proton and the easiest way i've found
+to get it working, is through Steam(not the steam version of the game but adding
+the game to Steam) however keep working with Wine and Lutris for now
 
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg
