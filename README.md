@@ -53,6 +53,9 @@ If you plan on using DCS with a VR headset you'll want to use Proton and the eas
 to get it working, is through Steam(not the Steam version of the game but adding
 the game to Steam) however keep working with Wine and Lutris for now
 
+If you would rather use headtracking via opentrack  
+I'd recommend you keep using Wine as opentrack does not support the steam method
+
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg
 in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
@@ -135,7 +138,7 @@ If you can't find an issue, or have found a solution for one, please discuss it 
 the .[matix](https://matrix.to/#/#dcs-on-linux:matrix.org) chat so I can update the guide
 
 ## Contrails are puffy/broken up
-yeah it's like that, i dont know why but it can be ignored
+yeah it's like that, i dont know why but it can be ignored  
 if you fix it let me know
 
 ## fx_5_0 error shaders not compiling
