@@ -146,6 +146,11 @@ if you fix it let me know
 ## fx_5_0 error shaders not compiling
 this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks
 
+## Apache crashes game
+This is caused by a missing font, I do not know wich one but I believe it's a font that is not avalable
+for redistrobution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you where to get them
+but if you can get your hands on a copy of `C:/Windows/Fonts` then that will fix you'r issue
+
 # Vr References
 
 As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
