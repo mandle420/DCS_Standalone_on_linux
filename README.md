@@ -21,6 +21,7 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [Broken Contrails](#Contrails-are-puffy/broken-up)
       * [fx_5_0 error](#fx_5_0-error-shaders-not-compiling)
+      * [Apache Crashes Game](#Apache-crashes-game)
    * [Vr References](#Vr-References)
    * [3rd party programs/tools](#3rd-party-programs/tools)
       * [Opentrack](#Opentrack)
@@ -147,9 +148,9 @@ if you fix it let me know
 this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks
 
 ## Apache crashes game
-This is caused by a missing font, I do not know wich one but I believe it's a font that is not avalable
-for redistrobution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you where to get them
-but if you can get your hands on a copy of `C:/Windows/Fonts` then that will fix you'r issue
+This is caused by a missing font, I do not know wich one but I believe it is a font that is not avalable
+for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you where to get them
+but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue
 
 # Vr References
 
