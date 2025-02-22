@@ -117,7 +117,7 @@ now that you've found the Steam Proton prefix, you need to link(I used a symlink
 ```/pfx/drive_c/users/Steamuser/Saved Games/```   
 to the one in your lutris install for instance the command I used in arch was:   
 ```<USERNAME>@PC ~> ln -s /home/<USERNAME>/Games/dcs-world/drive_c/users/<USERNAME>/Saved\ Games/ /home/<USERNAME>/.local/share/Steam/Steamapps/compatdata/2824223594/pfx/drive_c/users/Steamuser/```  
-### On Arch a filepath with spaces and either be added with ["/File Path/"] or [/File\ Path/] different systems may vary, check your respective wiki
+### On Arch a filepath with spaces can either be added with ["/File Path/"] or [/File\ Path/] different systems may vary, check your respective wiki
 (honesly linking everything from the Wine prefix will be neccisary but if your lazy like me just copy paste all the relevant folders from the Wine prefix to the Proton one).
 
 ## Known issues and fixes
@@ -145,11 +145,12 @@ yeah it's like that, i dont know why but it can be ignored
 if you fix it let me know
 
 ## fx_5_0 error shaders not compiling
-this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks
+this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks, 
+if that still dosent work try launching the DCSupdater.exe via lutris
 
 ## Apache crashes game
 This is caused by a missing font, I do not know wich one but I believe it is a font that is not avalable
-for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you where to get them
+for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you how to obtain them
 but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue
 
 # Vr References
@@ -164,4 +165,4 @@ Opentrack is a 3rd party headtracking software that can use TrackIR hardware
 https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
 
 # Installing Mods
-If you are using Lutris/Steam, just navigate to the Original prefix and install them as you would on windows
+If you are using Lutris/Steam, just navigate to the Original prefix and install them as you would on Windows
