@@ -75,8 +75,8 @@ With that change, you should be able to log in but once the game starts you
 will see a black screen. you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
 
 ## Voice Chat Bug
-### NOTE: the following dosen't seem to be an issue if you use Proton(Via Steam or lutris)
-#### If you proceede using Wine you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
+### NOTE: the following dosen't seem to always be an issue
+#### If you proceede  you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
 see [Porting to Steam](#Porting-to-Steam) for using Proton(Via Steam), just skip this step
 
 I have a workaround for this problem however it removes the in game voice chat functionality
@@ -129,30 +129,88 @@ recently, and just before that, the cause of the crash should be visible and if 
 yelds no result try turning it off and back on again(your PC/Device) lol.
 
 for troublshooting issues with steam try adding these environment variables
+```
 PROTON_LOG=1
-PROTON_LOG_DIR=/<path-to-desired-directory>/
+PROTON_LOG_DIR=/path-to-desired-directory/
+```
 set that directory and steam will dump log files there
 
 Sometimes crashes happen before the game gets far enough to create a log file.
-Then your best bet is to read the Proton output. In both Lutris and Steam, you can easily get
+Then your best bet is to read the Proton/Wine output. You can easily get
 this by starting them from a terminal.
 
-If you can't find an issue, or have found a solution for one, please discuss it in
-the .[matix](https://matrix.to/#/#dcs-on-linux:matrix.org) chat so I can update the guide
+If you can't find your issue, or have found a solution for one, please discuss it in
+the [matix](https://matrix.to/#/#dcs-on-linux:matrix.org) chat or in [ED's Discord server](https://discord.com/invite/eagledynamics) so I can update the guide
 
 ## Contrails are puffy/broken up
-yeah it's like that, i dont know why but it can be ignored  
-if you fix it let me know
+yeah it's like that, i dont know why but it can be ignored if you fix it let me know supposably there's a fix, I'll update the guide when it is made to work and I can confirm it
 
 ## fx_5_0 error shaders not compiling
 this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks, 
 if that still dosent work try launching the DCSupdater.exe via lutris
 
 ## Apache crashes game
-This is caused by a missing font, I do not know wich one but I believe it is a font that is not avalable
-for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you how to obtain them
-but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue
+This is caused by a missing font, `seguisym.ttf` it is a font that is not avalable for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you how to obtain it
+but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue, you can also use an existing font on your disto that supports all of the required characters and rename it to `seguisym.ttf`  
 
+However the MFD's on the apache will still be broken, this requires a script to convert the textures so that they are compatable with Wine/Proton
+rendering pipelines, unfortunately this breaks Pure Texture IC see the original post [here](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839), you will need to redo this every time you repair the game as it will overwrite these rexported textures with the original ones
+
+you will need the [imagemagick](https://imagemagick.org/index.php) package and you will likely need to edit the script so that it works on your install of DCS and you will need to change the filepath, also i wouldent remove the extra files like the Mi-24 and Ka-50 just incase you get them later so that you dont have to remember to come back to this page
+
+[Original Script](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839)  
+[Edited Script](DCSApachetextureconvert.txt):  
+```
+#!/bin/bash
+
+DCS_INSTALL="/home/<USERNAME>/Games/dcs-world/drive_c/Program Files/Eagle Dynamics/DCS World OpenBeta"
+
+BROKEN_FILES="Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/FontMPD_64.tga
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/EUFD_font.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/KU_font_8p.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TADS_symbology.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TEDAC/TEDAC_day.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TEDAC/TEDAC_FCR_indication_font.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TEDAC/TEDAC_FCR_Target_font.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TEDAC/TEDAC_font.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TEDAC/TEDAC_night.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/TEDAC/TEDAC_symbology.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/FontMPD_64_inv.tga
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/FontMPD_64_inv_bold.tga
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/indication_MPD.tga
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/indication_MPD_1024.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/indication_MPD_WPN.tga
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/indication_MPD_WPN_fon.tga
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MFD_dark_green.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MFD_gray.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MFD_green.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MFD_white.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MPD_FCR_indication_font.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MPD_FCR_Target_font.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MPD_VideoSymbology.dds
+Mods/aircraft/AH-64D/Cockpit/IndicationResources/Displays/MPD/MPD_VideoSymbology_font.dds
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_bg.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_Fixed_Grid.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_Grid_3x.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_Grid_3x_backlight.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_Grid_10x.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_Grid_10x_backlight.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/9K113_Ready.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/ASP17_flex_sight.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/font_arcade.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/font_general.tga
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/GOST_BU.TTF
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/HelperAI_common.dds
+Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/PKV_Grid.tga
+Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp"
+
+while read -r file; do
+    FULL_PATH="$DCS_INSTALL/$file"
+    echo "Converting ${FULL_PATH}"
+    cp "${FULL_PATH}" "${FULL_PATH}.original"
+    magick "${FULL_PATH}" "${FULL_PATH}"
+done <<< "$BROKEN_FILES"
+```
 # Vr References
 
 As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
