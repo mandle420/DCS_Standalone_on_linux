@@ -153,10 +153,22 @@ if that still dosent work try launching the DCSupdater.exe via lutris
 This is caused by a missing font, `seguisym.ttf` it is a font that is not avalable for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you how to obtain it
 but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue, you can also use an existing font on your disto that supports all of the required characters and rename it to `seguisym.ttf`  
 
-However the MFD's on the apache will still be broken, this requires a script to convert the textures so that they are compatable with Wine/Proton
-rendering pipelines, unfortunately this breaks Pure Texture IC see the original post [here](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839), you will need to redo this every time you repair the game as it will overwrite these rexported textures with the original ones
+However the MFD's on the apache will still be broken, this requires the script below. 
 
-you will need the [imagemagick](https://imagemagick.org/index.php) package and you will likely need to edit the script so that it works on your install of DCS and you will need to change the filepath, also i wouldent remove the extra files like the Mi-24 and Ka-50 just incase you get them later so that you dont have to remember to come back to this page
+## Fixing broken textures in cockpits
+some textures will not render due to RGBA values outside valid ranges, this requires a script to convert the textures so that they are compatable with Wine/Proton
+rendering pipelines, unfortunately this breaks Pure Texture IC see the original post [here](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839), you will need to redo this every time you repair the game as it will overwrite these rexported textures with the original ones
+to convert the textures so that they are compatable with Wine/Proton
+
+you will need the [imagemagick](https://imagemagick.org/index.php) package and you will likely need to edit the scripts contained install path so that it works on your install of DCS.
+
+Current list of known affected airframes requiring this script:
+```
+F/A-18C
+AH-64D
+MI-24P
+KA-50
+```
 
 [Original Script](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839)  
 [Edited Script](DCSApachetextureconvert.txt):  
@@ -202,7 +214,8 @@ Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/font_general.tga
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/GOST_BU.TTF
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/HelperAI_common.dds
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/PKV_Grid.tga
-Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp"
+Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp
+Mods/aircraft/FA-18C/Cockpit/IndicationResources/MDG/font_TGP_ATFLIR.tga"
 
 while read -r file; do
     FULL_PATH="$DCS_INSTALL/$file"
@@ -211,6 +224,7 @@ while read -r file; do
     magick "${FULL_PATH}" "${FULL_PATH}"
 done <<< "$BROKEN_FILES"
 ```
+
 # Vr References
 
 As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
@@ -218,9 +232,20 @@ this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
 
 # 3rd party programs/tools
 
-## Opentrack
+## Headtracking
 Opentrack is a 3rd party headtracking software that can use TrackIR hardware
 https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
 
+An alternative is Linuxtrack https://github.com/uglyDwarf/linuxtrack by uglyDwarf or the more up to date fork at https://github.com/RavenX8/linuxtrack
+
+## Simple Radio Standalone (SRS)
+Option one is to install it directly into the prefix of your DCS install, and while messy, is fully functional.
+
+Option two is to install it standalone. This option has complications in that it will not technically connect to DCS in the expected way, so servers that check to see a user is running SRS or may not see that correctly, as they appear to the server as a GCI, not a client, due to the naming. This will result in inability to play on certain servers autokicking for lack of SRS. (namely grayflag)
+
 # Installing Mods
-If you are using Lutris/Steam, just navigate to the Original prefix and install them as you would on Windows
+Install [Limo](https://github.com/limo-app/limo) and use it like you would use OpenModManager or previously the deprecated OvGME on windows. Limo also offers the ability to add additional tools like wine launches, and shell scripts, to make a gui for updating/repairing/launching the game, and running the texture fixing script above. A Flatpac verson is available and has no known drawbacks for use with DCS. Limo is a generic mod manager that supports case-detection to remove the need for case-folding for modding to prevent breaking the game. The deployers can use hardlink, symlink, or copy the files in. The location to place the files is the same as on windows, and if you are familliar with OMM then limo will feel right at home.
+
+For mods in the saved games folder that should be untouched by DCS, I recommend hardlink, case matching deployers, unless the files may be modified (ie using mods that modify other mods like armed blackhawk) then you would want to use copy with case matching. For mods in the game directory, I recommend using copy with case matching deployer, as its possible forgetting to uninstal before an update could modify/delete some of the files if they overlap vanilla assets.
+
+the case matching deployer will prevent issues with case-folding, where windows is case insensitive, linux is case sensitive, meaning we may have multiple files named the same if the case is different. IE: file.txt, File.txt, and FILE.txt are all unique files. if the game sees this and attempts to load a file, it may crash, or behave unexpectedly when faced with multiple files when it expects one file. To fix this, we either use case-matching deployers for mods, or we use case-folding filesystems. If you have configured your filesystem for case-folding, then the case matching is not nessisary for you, and simple will work fine for you to save time checking the name twice.
