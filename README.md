@@ -17,8 +17,9 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
       * [Lutris](#getting-it-working-with-Lutris)
       * [Black screen Launcher bypass](#Black-screen-launcher-bypass)
       * [Voice-Chat-Bug](#Voice-Chat-Bug)
-      * [Porting to Steam](#Porting-to-Steam)
+      * [Porting to Steam(BROKEN)](#Porting-to-Steam(BROKEN))
    * [Bugs and Fixes](#known-issues-and-fixes)
+      * [System ram leak](#system-ram-leak)
       * [Broken Contrails](#Contrails-are-puffy/broken-up)
       * [fx_5_0 error](#fx_5_0-error-shaders-not-compiling)
       * [Apache Crashes Game](#Apache-crashes-game)
@@ -41,7 +42,7 @@ Standalone install needs some Winetricks applied.
 Start the game once first to create the prefix([here](https://wiki.archlinux.org/title/Wine#WinePREFIX) for an explination of what a prefix is), then use lutris's Winetricks
 to add these .dll and font.
 ```
-vcrun2019 corefonts xact d3dcompiler_43
+vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
 ```
 you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the Wine glass at the bottom of the screen  
 ![Winetricks](images/Winetricks.png)
@@ -91,7 +92,7 @@ and remove the calls to voicechat on lines 118-129 and 453 look for the lines hi
 The game should now start.
 
 
-## Porting-to-Steam
+## Porting-to-Steam(BROKEN)\
 
 so first thing you're gonna want to do is add the DCS.exe as a Steam game
 
@@ -142,33 +143,24 @@ this by starting them from a terminal.
 If you can't find your issue, or have found a solution for one, please discuss it in
 the [matix](https://matrix.to/#/#dcs-on-linux:matrix.org) chat or in [ED's Discord server](https://discord.com/invite/eagledynamics) so I can update the guide
 
+## System ram leak
+when using the VCrun 2019 package, proton tends to fall flat on it's face attempting to load some of the .dll's and this causes an infinite loop that eats up all of your ram, the easiest fix is to remove/overwrite VCrun2019 with either 2015 or 2022
+
 ## Contrails are puffy/broken up
 yeah it's like that, i dont know why but it can be ignored if you fix it let me know supposably there's a fix, I'll update the guide when it is made to work and I can confirm it
 
 ## fx_5_0 error shaders not compiling
-this is usually caused by a missing Wine/Proton trick, make sure you have all of the Wine/Proton tricks, 
+this is usually caused by d3dcompiler being missing, make sure you have d3dcompiler47
 if that still dosent work try launching the DCSupdater.exe via lutris
 
 ## Apache crashes game
 This is caused by a missing font, `seguisym.ttf` it is a font that is not avalable for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you how to obtain it
 but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue, you can also use an existing font on your disto that supports all of the required characters and rename it to `seguisym.ttf`  
 
-However the MFD's on the apache will still be broken, this requires the script below. 
-
-## Fixing broken textures in cockpits
-some textures will not render due to RGBA values outside valid ranges, this requires a script to convert the textures so that they are compatable with Wine/Proton
+However the MFD's on the apache will still be broken, this requires a script to convert the textures so that they are compatable with Wine/Proton
 rendering pipelines, unfortunately this breaks Pure Texture IC see the original post [here](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839), you will need to redo this every time you repair the game as it will overwrite these rexported textures with the original ones
-to convert the textures so that they are compatable with Wine/Proton
 
-you will need the [imagemagick](https://imagemagick.org/index.php) package and you will likely need to edit the scripts contained install path so that it works on your install of DCS.
-
-Current list of known affected airframes requiring this script:
-```
-F/A-18C
-AH-64D
-MI-24P
-KA-50
-```
+you will need the [imagemagick](https://imagemagick.org/index.php) package and you will likely need to edit the script so that it works on your install of DCS and you will need to change the filepath, also i wouldent remove the extra files like the Mi-24 and Ka-50 just incase you get them later so that you dont have to remember to come back to this page
 
 [Original Script](https://github.com/ValveSoftware/Proton/issues/1722#issuecomment-2116194839)  
 [Edited Script](DCSApachetextureconvert.txt):  
@@ -214,8 +206,7 @@ Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/font_general.tga
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/GOST_BU.TTF
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/HelperAI_common.dds
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/PKV_Grid.tga
-Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp
-Mods/aircraft/FA-18C/Cockpit/IndicationResources/MDG/font_TGP_ATFLIR.tga"
+Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp"
 
 while read -r file; do
     FULL_PATH="$DCS_INSTALL/$file"
@@ -224,7 +215,6 @@ while read -r file; do
     magick "${FULL_PATH}" "${FULL_PATH}"
 done <<< "$BROKEN_FILES"
 ```
-
 # Vr References
 
 As far as VR on linux is concerned your milage may vary but, if you havent at least attempted it before
@@ -232,20 +222,9 @@ this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
 
 # 3rd party programs/tools
 
-## Headtracking
+## Opentrack
 Opentrack is a 3rd party headtracking software that can use TrackIR hardware
 https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
 
-An alternative is Linuxtrack https://github.com/uglyDwarf/linuxtrack by uglyDwarf or the more up to date fork at https://github.com/RavenX8/linuxtrack
-
-## Simple Radio Standalone (SRS)
-Option one is to install it directly into the prefix of your DCS install, and while messy, is fully functional.
-
-Option two is to install it standalone. This option has complications in that it will not technically connect to DCS in the expected way, so servers that check to see a user is running SRS or may not see that correctly, as they appear to the server as a GCI, not a client, due to the naming. This will result in inability to play on certain servers autokicking for lack of SRS. (namely grayflag)
-
 # Installing Mods
-Install [Limo](https://github.com/limo-app/limo) and use it like you would use OpenModManager or previously the deprecated OvGME on windows. Limo also offers the ability to add additional tools like wine launches, and shell scripts, to make a gui for updating/repairing/launching the game, and running the texture fixing script above. A Flatpac verson is available and has no known drawbacks for use with DCS. Limo is a generic mod manager that supports case-detection to remove the need for case-folding for modding to prevent breaking the game. The deployers can use hardlink, symlink, or copy the files in. The location to place the files is the same as on windows, and if you are familliar with OMM then limo will feel right at home.
-
-For mods in the saved games folder that should be untouched by DCS, I recommend hardlink, case matching deployers, unless the files may be modified (ie using mods that modify other mods like armed blackhawk) then you would want to use copy with case matching. For mods in the game directory, I recommend using copy with case matching deployer, as its possible forgetting to uninstal before an update could modify/delete some of the files if they overlap vanilla assets.
-
-the case matching deployer will prevent issues with case-folding, where windows is case insensitive, linux is case sensitive, meaning we may have multiple files named the same if the case is different. IE: file.txt, File.txt, and FILE.txt are all unique files. if the game sees this and attempts to load a file, it may crash, or behave unexpectedly when faced with multiple files when it expects one file. To fix this, we either use case-matching deployers for mods, or we use case-folding filesystems. If you have configured your filesystem for case-folding, then the case matching is not nessisary for you, and simple will work fine for you to save time checking the name twice.
+If you are using Lutris/Steam, just navigate to the Original prefix and install them as you would on Windows
