@@ -16,7 +16,7 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
    * [Installation](#Getting-it-installed-via-Lutris)
       * [Lutris](#getting-it-working-with-Lutris)
       * [Black screen Launcher bypass](#Black-screen-launcher-bypass)
-      * [Voice-Chat-Bug](#Voice-Chat-Bug)
+      * [Native-Voice-Chat-Bug](#Native-Voice-Chat-Bug)
       * [Porting to Steam(BROKEN)](#Porting-to-Steam(BROKEN))
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [System ram leak](#system-ram-leak)
@@ -75,7 +75,7 @@ you can do so under "game options" in the arguments field
 With that change, you should be able to log in but once the game starts you
 will see a black screen. you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
 
-## Voice Chat Bug
+## Native Voice Chat Bug
 ### NOTE: the following dosen't seem to always be an issue
 #### If you proceede  you will have to redo this step every time you repair the game and possibly when ED updates the optionDB.lua
 see [Porting to Steam](#Porting-to-Steam) for using Proton(Via Steam), just skip this step
@@ -222,9 +222,15 @@ this should get you started .[LVRA](https://discord.gg/qdUWFe4RDV)
 
 # 3rd party programs/tools
 
-## Opentrack
-Opentrack is a 3rd party headtracking software that can use TrackIR hardware
+## headtracking
+Opentrack is a 3rd party headtracking software that can use headtracker hardware (but not trackIR, unless doing some weird workarounds). Note that opentrack will need to inject-at-runtime to your prefix with a new program, so this can break some of your env vars.
 https://github.com/markx86/opentrack-launcher?tab=readme-ov-file#with-Steam-flatpak
 
+LinuxTrack can use trackIR hardware, and there are forks that have updated the version of QT it runs on. May require manual key extraction or non-staging system wine to work.
+https://github.com/uglyDwarf/linuxtrack
+
+## Simple Radio Standalone (SRS)
+SRS is the standard basically every server uses for radios, as it has far more functionality than vanilla and has existed far longer. Thankfully, SRS installations use localhost networking to pipe data from the game so we dont need to install it in the same prefix to work, and they dont need to inject to the prefix like opentrack does. To install SRS, you could install it to your dcs prefix, or, the better option, is to install SRS to its own prefix. Many have issues on wine/proton versions above 8.x. 8.26 proton GE is confirmed to work(Chaos). to install SRS, grab the files from github releases at https://github.com/ciribob/DCS-SimpleRadioStandalone and put them into your 8.x prefix. then open the readme.txt it comes with for manual installation instructions of the hook. If you are feeling lazy, you may be able to use the autoinstaller run under the game prefix to auto-install the hooks to the game. Once this is done, just launch srs and the game however you please if they are in their own prefixes, and they will connect via localhost networking.
+
 # Installing Mods
-If you are using Lutris/Steam, just navigate to the Original prefix and install them as you would on Windows
+Use Limo to manage your mods. You can specify the directories same as windows users. Limo will also allow you to run scripts from it, so shell scripts that need to run on update, or uninstalling mods for an update to prevent corruption, can be easilly managed and run via Limo. You can install it as a flatpak with no drawbacks. https://github.com/limo-app/limo/wiki
