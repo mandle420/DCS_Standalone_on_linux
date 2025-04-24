@@ -39,7 +39,8 @@ Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/font_general.tga
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/GOST_BU.TTF
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/HelperAI_common.dds
 Mods/aircraft/Mi-24P/Cockpit/IndicationTextures/PKV_Grid.tga
-Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp"
+Mods/aircraft/Ka-50_3/Cockpit/IndicationTextures/SHKVAL_MASK.bmp
+Mods/aircraft/FA-18C/Cockpit/IndicationResources/MDG/font_TGP_ATFLIR.tga"
 
 while read -r file; do
     FULL_PATH="$DCS_INSTALL/$file"
