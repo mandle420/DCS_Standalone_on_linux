@@ -38,9 +38,8 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
-I used the latter labeled Standalone Open Beta version, but they both should work
-as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked.
-this will download, the DCS updater and you should install the game
+Standalone Open Beta version is no longer downloadable
+Select the wine Eagle Dynamics version
 
 ### Getting it working with Lutris
 
