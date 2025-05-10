@@ -42,15 +42,7 @@ Standalone Open Beta version is no longer downloadable
 Select the wine Eagle Dynamics version
 
 ### Getting it working with Lutris
-
-Standalone install needs some Winetricks applied.    
-Start the game once first to create the prefix([here](https://wiki.archlinux.org/title/Wine#WinePREFIX) for an explination of what a prefix is), then use lutris's Winetricks
-to add these .dll and font.
-```
-vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
-```
-you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the Wine glass at the bottom of the screen  
-![Winetricks](images/Winetricks.png)
+Lutris now does the winetricks so you don't need to do that anymore.
 
 You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
 In lutris, you can do so under "runner options".
