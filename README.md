@@ -38,8 +38,8 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
-Standalone Open Beta version is no longer downloadable
-Select the wine Eagle Dynamics version
+Standalone Open Beta version is no longer downloadable.
+Select the wine Eagle Dynamics version and continue with the install and download. This will take some time depending on your connection. If you have a backup copy of you dcs folder, you can copy the coremods and mod's folder to the downloads folder in the Program Files\Eagle Dynamics\DCSWorld\_downloads folder to save time. Will save about 6 hours on a 10MB connection.
 
 ### Getting it working with Lutris
 Lutris now does the winetricks so you don't need to do that anymore.
@@ -49,15 +49,7 @@ In lutris, you can do so under "runner options".
 
 ![wbemprox](images/wbemprox.png)
 
-#### (updated for 2.9.12.5336)
-
-If you plan on using DCS with a VR headset you'll want to use Proton and the easiest way i've found
-to get it working, is through Steam(not the Steam version of the game but adding
-the game to Steam) however keep working with Wine and Lutris for now
-
-If you would rather use headtracking via opentrack  
-I'd recommend you keep using Wine as opentrack does not support the steam method
-
+## Duplicate Lutris Config
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg
 in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
@@ -69,9 +61,16 @@ So at this point you should get a black screen a little bit smaller than your di
 you'll need to add this the the launch arguments of Lutris `--no-launcher`
 you can do so under "game options" in the arguments field
 
+you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
 
-With that change, you should be able to log in but once the game starts you
-will see a black screen. you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
+#### (updated for 2.9.12.5336)
+
+If you plan on using DCS with a VR headset you'll want to use Proton and the easiest way i've found
+to get it working, is through Steam(not the Steam version of the game but adding
+the game to Steam) however keep working with Wine and Lutris for now
+
+If you would rather use headtracking via opentrack  
+I'd recommend you keep using Wine as opentrack does not support the steam method
 
 ## Native Voice Chat black screen Bug
 ### NOTE: the following dosen't seem to always be an issue
