@@ -46,6 +46,7 @@ Lutris now does the winetricks so you don't need to do that anymore.
 
 You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
 In lutris, you can do so under "runner options".
+
 ![wbemprox](images/wbemprox.png)
 
 #### (updated for 2.9.12.5336)
