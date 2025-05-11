@@ -91,7 +91,7 @@ The game should now start.
 
 ## Porting-to-Steam(BROKEN)
 
-so first thing you're gonna want to do is add the DCS.exe as a Steam game
+so first thing you're gonna want to do is add the DCS.exe as a non-Steam game
 
 ![Porting to Steam](images/DCStoSteam.png)
 
@@ -100,10 +100,15 @@ then add these launch options(some debug info, and the no launcher option from b
 optionally you can add the gamemoderun command, however that requres you have gamemode installed  
 ```WineDLLOVERRIDES="wbemprox=n" WineDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" gamemoderun %command% --no-launcher```  
 
+
 also I found the most sucess with Proton experimental but try different ones out see what works
 
 now that that's done, launch it to create the prefix in Steam
 you need to add the userdata from the Wine prefix to the Steam prefix
+Now run protontricks, select dcs non steam game and install the following
+corefonts vcrun2017 dxdiag xact_x64 xmllite win10
+
+then select winecfg from the protontricks menu and set the os version to windows 10
 
 Steam Proton prefixes are stored in the compatdata folder usually around here   
 ```/home/<USRNAME>/.local/share/Steam/Steamapps/compatdata/```   
