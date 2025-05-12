@@ -38,11 +38,20 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
-Standalone Open Beta version is no longer downloadable.
-Select the wine Eagle Dynamics version and continue with the install and download. This will take some time depending on your connection. If you have a backup copy of you dcs folder, you can copy the coremods and mod's folder to the downloads folder in the Program Files\Eagle Dynamics\DCSWorld\_downloads folder to save time. Will save about 6 hours on a 10MB connection. Make sure the game is not running when you copy the files.
+I used the latter labeled Standalone Open Beta version, but they both should work as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked. this will download, the DCS updater and you should install the game.
+For non beta Select the wine Eagle Dynamics version and continue with the install and download. This will take some time depending on your connection. If you have a backup copy of you dcs folder, you can copy the coremods and mod's folder to the downloads folder in the Program Files\Eagle Dynamics\DCSWorld\_downloads folder to save time. Will save about 6 hours on a 10MB connection. Make sure the game is not running when you copy the files.
 
 ### Getting it working with Lutris
 Lutris now does the winetricks so you don't need to do that anymore.
+
+If winetricks are not installed,
+
+Start the game once first to create the prefix(here for an explination of what a prefix is), then use lutris's Winetricks to add these .dll and font.
+
+vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
+
+you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the Wine glass at the bottom of the screen
+Winetricks
 
 You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
 In lutris, you can do so under "runner options".
