@@ -66,7 +66,8 @@ So at this point you should get a black screen a little bit smaller than your di
 you'll need to add this the the launch arguments of Lutris `--no-launcher`
 you can do so under "game options" in the arguments field
 
-##VR with Lutris
+## VR with Lutris
+
 Use Envision to setup your VR Headset. You'll also want to have Steam, SteamVR, and Proton Experimental(other versions of Proton may work, but weren't tested, and we're not actually using steam vr, it's needed to calibrate in envision)
 In lutris, select DCS, click the arrow beside Play, and select configure.
 Under the Game Options tab, 
