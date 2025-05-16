@@ -69,18 +69,21 @@ you can do so under "game options" in the arguments field
 ## VR with Lutris
 
 Use Envision to setup your VR Headset. You'll also want to have Steam, SteamVR, and Proton Experimental(other versions of Proton may work, but weren't tested, and we're not actually using steam vr, it's needed to calibrate in envision)
+
 In lutris, select DCS, click the arrow beside Play, and select configure then nder the Game Options tab, 
 ```--no-launcher --force_enable_VR --force_OpenXR```
 go in the arguments field.
+
 Under the System Options tab, in the Environment Variables section, click add.
-First key is 
+First KEY is 
 ```PRESSURE_VESSEL_FILESYSTEMS_RW```
-value
+VALUE
 ```/run/user/1000/monado_comp_ipc```
+
 then click add again
-key
+KEY
 ```XR_RUNTIME_JSON```
-value
+VALUE
 ```/home/$USER/.local/share/envision/prefixes/lighthouse_default/share/openxr/1/openxr_monado.json```
 You can also click the 3 dots in Envision to copy the environment variables, if you're not using the default envision profiles
 
