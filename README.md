@@ -39,13 +39,9 @@ There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
 I used the latter labeled Standalone Open Beta version, but they both should work as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked. this will download, the DCS updater and you should install the game.
-For non beta Select the wine Eagle Dynamics version and continue with the install and download. This will take some time depending on your connection. If you have a backup copy of you dcs folder, you can copy the coremods and mod's folder to the downloads folder in the Program Files\Eagle Dynamics\DCSWorld\_downloads folder to save time. Will save about 6 hours on a 10MB connection. Make sure the game is not running when you copy the files.
 
 ### Getting it working with Lutris
-Lutris now does the winetricks so you don't need to do that anymore.
-
-If winetricks are not installed,
-
+This step should be by the lutris installer, but check just in case.
 Start the game once first to create the prefix(here for an explination of what a prefix is), then use lutris's Winetricks to add these .dll and font.
 
 vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
@@ -69,6 +65,24 @@ we will be working with the duplicated one, not the original
 So at this point you should get a black screen a little bit smaller than your display that'll be the launcher
 you'll need to add this the the launch arguments of Lutris `--no-launcher`
 you can do so under "game options" in the arguments field
+
+##VR with Lutris
+Use Envision to setup your VR Headset. You'll also want to have Steam, SteamVR, and Proton Experimental(other versions of Proton may work, but weren't tested, and we're not actually using steam vr, it's needed to calibrate in envision)
+In lutris, select DCS, click the arrow beside Play, and select configure.
+Under the Game Options tab, 
+--no-launcher --force_enable_VR --force_OpenXR
+go in the arguments field.
+Under the System Options tab, in the Environment Variables section, click add.
+First key is 
+PRESSURE_VESSEL_FILESYSTEMS_RW
+value
+/run/user/1000/monado_comp_ipc
+then click add again
+key
+XR_RUNTIME_JSON
+value
+/home/$USER/.local/share/envision/prefixes/lighthouse_default/share/openxr/1/openxr_monado.json
+You can also click the 3 dots in Envision to copy the environment variables, if you're not using the default envision profiles
 
 you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
 
