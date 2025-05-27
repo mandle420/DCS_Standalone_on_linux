@@ -38,7 +38,7 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
-I used the latter labeled Standalone Open Beta version, but they both should work as DCS no longer has an "OpenBeta" and I believe that the install scripts may be borked. this will download, the DCS updater and you should install the game.
+I used the latter labeled Standalone Open Beta version, but they both should work as DCS no longer has an "OpenBeta" Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. this will download, the DCS updater and you should install the game.
 
 ### Getting it working with Lutris
 This step should be by the lutris installer, but check just in case.
