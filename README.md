@@ -42,7 +42,7 @@ I used the latter labeled Standalone Open Beta version, but they both should wor
 
 ### Getting it working with Lutris
 This step should be by the lutris installer, but check just in case.
-Start the game once first to create the ([prefix](https://wiki.archlinux.org/title/Wine#WinePREFIX), then use lutris's Winetricks to add these .dll and font.
+Start the game once first to create the wine [prefix](https://wiki.archlinux.org/title/Wine#WinePREFIX), then use lutris's Winetricks to add these .dll and font.
 
 vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
 
