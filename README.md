@@ -1,8 +1,7 @@
 # DCS Standalone on Linux Via Wine(Lutris)/Proton(Steam)
 #### Any and all refrences to Steam, are not relating to the Steam version of the game.
 
-DCS World can run on linux through Wine and Proton, though it does take some
-work to get running and if you want to use VR I highly recommend using Proton(Steam) as opposed to Wine, if anything dosen't work, make sure I cannot stress this enough
+DCS World can run on linux through Wine and Proton, though it does take some work to get running and if you want to use VR I highly recommend using Lutris and Envision. If anything dosen't work, make sure, and I cannot stress this enough
 CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
@@ -37,7 +36,7 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
-I used the latter labeled Standalone Open Beta version, but they both should work as DCS no longer has an "OpenBeta" Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. this will download, the DCS updater and you should install the game.
+I used the Former labeled Eagle Dynamics version, but they both should work as DCS no longer has an "OpenBeta". Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. This will download the DCS updater and you should install the game.
 
 ### Getting it working with Lutris
 This step should be done by the lutris installer, but check just in case.
@@ -49,17 +48,16 @@ you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click on
 
 ![Winetricks](images/Winetricks.png)
 
-You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
-In lutris, you can do so under "runner options". Lutris should do this for you.
+The dll override `wbemprox=n` needs to be set. This should be done by Lutris, if using the Eagle Dynamics Version.
+Check by right clicking DCS, select configure, and then click the runner options tab, and add it if not already there.
 You can also set the wine version to wine-ge-8-26-x86_64
 
 ![wbemprox](images/wbemprox.png)
 
 ## Duplicate Lutris Config
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
-make sure you have used it to install the game files at this point and duplicate the confg
-in lutris, then change the duplicated lutris config to launch the DCS.exe MT or not, dosen't matter
-we will be working with the duplicated one, not the original
+make sure you have used it to install the game files at this point and duplicate the confg by right clicking on DCS and select duplicate.
+Right click on the duplicate, select configure, and under the game options tab, remove _Updater, from the Executable line, so it reads DCS.exe
 
 ## Black screen launcher bypass
 
