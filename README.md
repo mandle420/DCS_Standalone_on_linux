@@ -15,10 +15,9 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 ## Contents
 
    * [Installation](#Getting-it-installed-via-Lutris)
-      * [Lutris](#getting-it-working-with-Lutris)
+      * [Lutris with VR](#getting-it-working-with-Lutris)
       * [Black screen Launcher bypass](#Black-screen-launcher-bypass)
       * [Native-Voice-Chat-Bug](#Native-Voice-Chat-Bug)
-      * [Porting to Steam(BROKEN)](#Porting-to-Steam(BROKEN))
    * [Bugs and Fixes](#known-issues-and-fixes)
       * [System ram leak](#system-ram-leak)
       * [Broken Contrails](#Contrails-are-puffy/broken-up)
@@ -41,7 +40,7 @@ for standalone](https://lutris.net/games/dcs-world/) on Lutris
 I used the latter labeled Standalone Open Beta version, but they both should work as DCS no longer has an "OpenBeta" Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. this will download, the DCS updater and you should install the game.
 
 ### Getting it working with Lutris
-This step should be by the lutris installer, but check just in case.
+This step should be done by the lutris installer, but check just in case.
 Start the game once first to create the wine [prefix](https://wiki.archlinux.org/title/Wine#WinePREFIX), then use lutris's Winetricks to add these .dll and font.
 
 vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
@@ -68,13 +67,14 @@ So at this point you should get a black screen a little bit smaller than your di
 you'll need to add this the the launch arguments of Lutris `--no-launcher`
 you can do so under "game options" in the arguments field
 
+
 ## VR with Lutris
 
-Use Envision to setup your VR Headset. You'll also want to have Steam, SteamVR, and Proton Experimental(other versions of Proton may work, but weren't tested, and we're not actually using steam vr, it's needed to calibrate in envision)
+Use Envision to setup your VR Headset. You'll also want to have Steam and SteamVR setup as they're needed to calibrate in envision)
 
-In lutris, select DCS, click the arrow beside Play, and select configure then nder the Game Options tab, 
+In lutris, select DCS, click the arrow beside Play, and select Configure, then under the Game Options tab, add
 ```--no-launcher --force_enable_VR --force_OpenXR```
-go in the arguments field.
+in the arguments field.
 
 Under the System Options tab, in the Environment Variables section, click add.
 First KEY is 
@@ -87,15 +87,9 @@ KEY
 ```XR_RUNTIME_JSON```
 VALUE
 ```/home/$USER/.local/share/envision/prefixes/lighthouse_default/share/openxr/1/openxr_monado.json```
-You can also click the 3 dots in Envision to copy the environment variables, if you're not using the default envision profiles
-
-you have two options from here, proceede with Wine or use Proton under Steam(Recommended for VR)
+If you're not using an index, you can click the 3 dots in Envision to copy the environment variables. Then paste them into a text editor, so you can copy the last value. The key's and the first value willl not be different.
 
 #### (updated for 2.9.12.5336)
-
-If you plan on using DCS with a VR headset you'll want to use Proton and the easiest way i've found
-to get it working, is through Steam(not the Steam version of the game but adding
-the game to Steam) however keep working with Wine and Lutris for now
 
 If you would rather use headtracking via opentrack  
 I'd recommend you keep using Wine as opentrack does not support the steam method
@@ -117,33 +111,6 @@ and remove the calls to voicechat on lines 118-129 and 453 look for the lines hi
 The game should now start.
 
 
-## Porting-to-Steam(BROKEN)
-
-so first thing you're gonna want to do is add the DCS.exe as a Steam game
-
-![Porting to Steam](images/DCStoSteam.png)
-
-then add these launch options(some debug info, and the no launcher option from before)  
-```WineDLLOVERRIDES="wbemprox=n" WineDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" %command% --no-launcher```  
-optionally you can add the gamemoderun command, however that requres you have gamemode installed  
-```WineDLLOVERRIDES="wbemprox=n" WineDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+module" gamemoderun %command% --no-launcher```  
-
-also I found the most sucess with Proton experimental but try different ones out see what works
-
-now that that's done, launch it to create the prefix in Steam
-you need to add the userdata from the Wine prefix to the Steam prefix
-
-Steam Proton prefixes are stored in the compatdata folder usually around here   
-```/home/<USRNAME>/.local/share/Steam/Steamapps/compatdata/```   
-now once you're there, youll see a lot of numbered folders, one of those is the
-new DCS prefix, it's probably going to be one of the longer ones  
-it might be easier to find yours if you sort by creation date it should be the first/last one.
-
-now that you've found the Steam Proton prefix, you need to link(I used a symlink) the Saved Games folder   
-```/pfx/drive_c/users/Steamuser/Saved Games/```   
-to the one in your lutris install for instance the command I used in arch was:   
-```<USERNAME>@PC ~> ln -s /home/<USERNAME>/Games/dcs-world/drive_c/users/<USERNAME>/Saved\ Games/ /home/<USERNAME>/.local/share/Steam/Steamapps/compatdata/2824223594/pfx/drive_c/users/Steamuser/```  
-### On Arch a filepath with spaces can either be added with ["/File Path/"] or [/File\ Path/] different systems may vary, check your respective wiki
 
 ## Known issues and fixes
 
