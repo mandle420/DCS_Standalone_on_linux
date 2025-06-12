@@ -9,7 +9,7 @@ in the [Proton issuetracker](https://github.com/ValveSoftware/Proton/issues/1722
 and in the [Matrix chat](https://matrix.to/#/#dcs-on-linux:matrix.org).  
 Unfortunately, workarounds easily get buried there and the OG of this Doc is outdated  
 (I will try to keep this one up to date but I make no promises)  
-**last update:4/24/2025**  
+**last update:6/12/2025**  
 
 ## Contents
 
