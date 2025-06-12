@@ -47,10 +47,12 @@ Start the game once first to create the wine [prefix](https://wiki.archlinux.org
 vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
 
 you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the Wine glass at the bottom of the screen
+
 ![Winetricks](images/Winetricks.png)
 
 You need to add a "dll override" aswell. As of 2.9.12, `wbemprox=n` needs to be overridden.
-In lutris, you can do so under "runner options".
+In lutris, you can do so under "runner options". Lutris should do this for you.
+You can also set the wine version to wine-ge-8-26-x86_64
 
 ![wbemprox](images/wbemprox.png)
 
