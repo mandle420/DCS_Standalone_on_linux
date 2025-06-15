@@ -59,7 +59,9 @@ The game should run at this point in 2d mode.
 
 ## VR with Lutris
 
-Use Envision to setup your VR Headset. You'll also want to have Steam and SteamVR setup as they're needed to calibrate in envision)
+Use Envision to setup your VR Headset. You'll also want to have Steam and SteamVR setup as they're needed to calibrate in envision) I compiled from source here. Although I think my issues was not having proton experimental set as my wine prefix, so default package manager version/appimage should work.
+https://gitlab.com/gabmus/envision
+
 For sanity checking, make sure that SteamVR is working, as well as playing games with Envision without steamvr. VTOL VR is good, as it works with both steamvr and envision. VRChat, and Star Wars Squadrons are the other 2 I check. 
 
 Set the wine version to Proton-Experimental.
