@@ -46,6 +46,7 @@ If using the Open Beta version, all winetricks should already be configured, hen
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg by right clicking on DCS and select duplicate.
 Right click on the duplicate, select configure, and under the game options tab, remove _Updater, from the Executable line, so it reads DCS.exe
+
 ![image](https://github.com/user-attachments/assets/76827e7c-97a3-4331-8cec-afd462090f41)
 
 ## Black screen launcher bypass
@@ -64,6 +65,8 @@ For sanity checking, make sure that SteamVR is working, as well as playing games
 Set the wine version to Proton-Experimental.
 Right click the game DCS profile, select configure, and then click the runner options tab, set the wine version to proton-experiemental. The other prefixes did not work for VR. (this will require steamvr and proton experimental already setup in steam)
 
+![image](https://github.com/user-attachments/assets/d11a76e3-0495-4745-8d6d-3ab4af901f5b)
+
 then under the Game Options tab, add
 ```--no-launcher --force_enable_VR --force_OpenXR```
 in the arguments field.
@@ -80,6 +83,7 @@ KEY
 VALUE
 ```/home/$USER/.local/share/envision/prefixes/lighthouse_default/share/openxr/1/openxr_monado.json```
 If you're not using an index, you can click the 3 dots in Envision to copy the environment variables. Then paste them into a text editor, so you can copy the last value. The key's and the first value will be the same, only the XR runtime json will be different.
+
 ![image](https://github.com/user-attachments/assets/7fbe1514-6f52-4702-a851-fc07b5c07939)
 
 #### (updated for 2.9.12.5336)
