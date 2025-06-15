@@ -50,7 +50,7 @@ you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click on
 
 The dll override `wbemprox=n` needs to be set. This should be done by Lutris, if using the Eagle Dynamics Version.
 Check by right clicking DCS, select configure, and then click the runner options tab, and add it if not already there.
-You can also set the wine version to wine-ge-8-26-x86_64
+You can also set the wine version to proton-experiemental. won't work otherwise.
 
 ![wbemprox](images/wbemprox.png)
 
