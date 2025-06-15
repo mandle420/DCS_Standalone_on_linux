@@ -1,7 +1,7 @@
 # DCS Standalone on Linux Via Wine(Lutris)/Proton(Steam)
 #### Any and all refrences to Steam, are not relating to the Steam version of the game.
 
-DCS World can run on linux through Wine and Proton, although it does take some work to get running. If you want to use VR, I highly recommend using Lutris and Envision.  If anything dosen't work, make sure, and I cannot stress this enough,
+DCS World can run on linux through Wine and Proton, although it does take some work to get running. If you want to use VR, I highly recommend using Lutris and Envision, using proton experiemental.  If anything dosen't work, make sure, and I cannot stress this enough,
 CHECK all your log files.
 
 Thanks to everyone who has helped getting the game running and debugging issues
@@ -9,7 +9,7 @@ in the [Proton issuetracker](https://github.com/ValveSoftware/Proton/issues/1722
 and in the [Matrix chat](https://matrix.to/#/#dcs-on-linux:matrix.org).  
 Unfortunately, workarounds easily get buried there and the OG of this Doc is outdated  
 (I will try to keep this one up to date but I make no promises)  
-**last update:6/12/2025**  
+**last update:6/14/2025**  
 
 ## Contents
 
@@ -39,18 +39,7 @@ for standalone](https://lutris.net/games/dcs-world/) on Lutris
 I used the Former labeled Eagle Dynamics version, but they both should work as DCS no longer has an "OpenBeta". Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. This will download the DCS updater and you should install the game.
 
 ### Getting it working with Lutris
-This step should be done by the lutris installer, but check just in case.
-Start the game once first to create the wine [prefix](https://wiki.archlinux.org/title/Wine#WinePREFIX), then use lutris's Winetricks to add these .dll and font.
 
-vcrun2019(optional causes issues) corefonts xact d3dcompiler_47
-
-you can open Winetricks in lutris by clicking on DCS Do not open, 1 LMB click only, then click on the Wine glass at the bottom of the screen
-
-![Winetricks](images/Winetricks.png)
-
-The dll override `wbemprox=n` needs to be set. This should be done by Lutris, if using the Eagle Dynamics Version.
-Check by right clicking DCS, select configure, and then click the runner options tab, and add it if not already there.
-You can also set the wine version to proton-experiemental. won't work otherwise.
 
 ![wbemprox](images/wbemprox.png)
 
@@ -70,7 +59,10 @@ you can do so under "game options" in the arguments field
 
 Use Envision to setup your VR Headset. You'll also want to have Steam and SteamVR setup as they're needed to calibrate in envision)
 
-In lutris, select DCS, click the arrow beside Play, and select Configure, then under the Game Options tab, add
+Set the wine version to Proton-Experimental.
+Right click the game DCS profile, select configure, and then click the runner options tab, set the wine version to proton-experiemental. The other prefixes did not work for VR. (this will require steamvr and proton experimental already setup in steam)
+
+then under the Game Options tab, add
 ```--no-launcher --force_enable_VR --force_OpenXR```
 in the arguments field.
 
