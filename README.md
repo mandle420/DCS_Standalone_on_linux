@@ -37,27 +37,29 @@ There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
 I used the Former labeled Eagle Dynamics version, but they both should work as DCS no longer has an "OpenBeta". Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. This will download the DCS updater and you should install the game.
+If using the Eagle Dynamics version, all winetricks should already be configured, hence why they are removed from this walkthrough.
 
 ### Getting it working with Lutris
 
-
-![wbemprox](images/wbemprox.png)
 
 ## Duplicate Lutris Config
 before you move on, you should have an install via lutris that opens the DCS_Updater.exe
 make sure you have used it to install the game files at this point and duplicate the confg by right clicking on DCS and select duplicate.
 Right click on the duplicate, select configure, and under the game options tab, remove _Updater, from the Executable line, so it reads DCS.exe
+![image](https://github.com/user-attachments/assets/76827e7c-97a3-4331-8cec-afd462090f41)
 
 ## Black screen launcher bypass
 
 So at this point you should get a black screen a little bit smaller than your display that'll be the launcher
 you'll need to add this the the launch arguments of Lutris `--no-launcher`
-you can do so under "game options" in the arguments field
+you can do so under "game options" in the arguments field.
+The game should run at this point. 
 
 
 ## VR with Lutris
 
 Use Envision to setup your VR Headset. You'll also want to have Steam and SteamVR setup as they're needed to calibrate in envision)
+For sanity checking, make sure that SteamVR is working, as well as playing games with Envision without steamvr. VTOL VR is good, as it works with both options. VRChat, and Star Wars Squadrons are the other 2 I check. 
 
 Set the wine version to Proton-Experimental.
 Right click the game DCS profile, select configure, and then click the runner options tab, set the wine version to proton-experiemental. The other prefixes did not work for VR. (this will require steamvr and proton experimental already setup in steam)
@@ -77,7 +79,8 @@ KEY
 ```XR_RUNTIME_JSON```
 VALUE
 ```/home/$USER/.local/share/envision/prefixes/lighthouse_default/share/openxr/1/openxr_monado.json```
-If you're not using an index, you can click the 3 dots in Envision to copy the environment variables. Then paste them into a text editor, so you can copy the last value. The key's and the first value willl not be different.
+If you're not using an index, you can click the 3 dots in Envision to copy the environment variables. Then paste them into a text editor, so you can copy the last value. The key's and the first value will be the same, only the XR runtime json will be different.
+![image](https://github.com/user-attachments/assets/7fbe1514-6f52-4702-a851-fc07b5c07939)
 
 #### (updated for 2.9.12.5336)
 
