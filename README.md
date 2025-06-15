@@ -88,6 +88,7 @@ If you're not using an index, you can click the 3 dots in Envision to copy the e
 
 ![image](https://github.com/user-attachments/assets/7fbe1514-6f52-4702-a851-fc07b5c07939)
 
+Handtracking works. Set to hands, not controller. Didn't test all that much, as I know that even in windows, it sucks. but it's there if you want it.
 #### (updated for 2.9.12.5336)
 
 If you would rather use headtracking via opentrack  
