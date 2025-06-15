@@ -36,8 +36,8 @@ Unfortunately, workarounds easily get buried there and the OG of this Doc is out
 There are [two install scripts
 for standalone](https://lutris.net/games/dcs-world/) on Lutris
 ![Lutris Install Scripts](images/DCS.openbeta.png)
-I used the Former labeled Eagle Dynamics version, but they both should work as DCS no longer has an "OpenBeta". Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. This will download the DCS updater and you should install the game.
-If using the Eagle Dynamics version, all winetricks should already be configured, hence why they are removed from this walkthrough.
+I used the Open Beta version, but they both should work. DCS no longer has an "OpenBeta". Using non-OB installer requires d3dcompiler_47.dll be added to the prefix. Currently DCS has no OB branch, so installing with OB will just install the stable branch. This will download the DCS updater and you should install the game.
+If using the Open Beta version, all winetricks should already be configured, hence why they are removed from this walkthrough.
 
 ### Getting it working with Lutris
 
@@ -50,16 +50,16 @@ Right click on the duplicate, select configure, and under the game options tab, 
 
 ## Black screen launcher bypass
 
-So at this point you should get a black screen a little bit smaller than your display that'll be the launcher
+So at this point, when you launch the game, you should get a black screen a little bit smaller than your display that'll be the launcher
 you'll need to add this the the launch arguments of Lutris `--no-launcher`
 you can do so under "game options" in the arguments field.
-The game should run at this point. 
+The game should run at this point in 2d mode.
 
 
 ## VR with Lutris
 
 Use Envision to setup your VR Headset. You'll also want to have Steam and SteamVR setup as they're needed to calibrate in envision)
-For sanity checking, make sure that SteamVR is working, as well as playing games with Envision without steamvr. VTOL VR is good, as it works with both options. VRChat, and Star Wars Squadrons are the other 2 I check. 
+For sanity checking, make sure that SteamVR is working, as well as playing games with Envision without steamvr. VTOL VR is good, as it works with both steamvr and envision. VRChat, and Star Wars Squadrons are the other 2 I check. 
 
 Set the wine version to Proton-Experimental.
 Right click the game DCS profile, select configure, and then click the runner options tab, set the wine version to proton-experiemental. The other prefixes did not work for VR. (this will require steamvr and proton experimental already setup in steam)
