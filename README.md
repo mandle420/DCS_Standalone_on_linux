@@ -146,7 +146,7 @@ if that still dosent work try launching the DCSupdater.exe via lutris
 
 ## Apache crashes game
 This is caused by a missing font, `seguisym.ttf` it is a font that is not avalable for redistribution, ie: cannot be legally obtained on Linux so I unfortunately cannot tell you how to obtain it
-but if you can get your hands on a copy of `C:/Windows/Fonts` than that will fix your issue, you can also use an existing font on your disto that supports all of the required characters and rename it to `seguisym.ttf`  
+but if you can get your hands on a copy of `C:/Windows/Fonts` and copy into drive_c/Windows/Fonts than that will fix your issue, you can also use an existing font on your disto that supports all of the required characters and rename it to `seguisym.ttf`  
 
 ## AH-64/F-18/Ka-50/Mi-24P MFD/sights broken
 
